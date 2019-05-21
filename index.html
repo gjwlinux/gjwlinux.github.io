@@ -292,6 +292,28 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -361,7 +383,23 @@
 <li><p>lower 将字符串转换为小写</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; mystr = &apos;ABC&apos;</span><br><span class="line">&gt;&gt;&gt; </span><br><span class="line">&gt;&gt;&gt; mystr.lower()</span><br><span class="line">&apos;abc&apos;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>lstrip</p>
+<li><p>lstrip 去掉字符串左边空格，或指定字符</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; mystr = &apos;abcdef&apos;</span><br><span class="line">&gt;&gt;&gt; mystr.lstrip(&apos;a&apos;)</span><br><span class="line">&apos;bcdef&apos;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>replace 替换字符串</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; mystr.replace(&apos;f&apos;,&apos;a&apos;)</span><br><span class="line">&apos;abcdea&apos;</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>rjust 字符串右对齐,默认使用空格填充至指定长度的新字符串</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; mystr = &apos;hi&apos;</span><br><span class="line">&gt;&gt;&gt; mystr.rjust(10,&apos;!&apos;)</span><br><span class="line">&apos;!!!!!!!!hi&apos;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>split 字符串切分返回列表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; mystr.split(&apos;c&apos;)</span><br><span class="line">[&apos;ab&apos;, &apos;ab&apos;, &apos;&apos;]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>strip 去除指定字符</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; mystr.strip(&apos;a&apos;)</span><br><span class="line">&apos;bcabc&apos;</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>upper 将字符串变为大写</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; mystr.upper()</span><br><span class="line">&apos;ABCABC&apos;</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 
@@ -451,6 +489,15 @@
               </div>
             
 
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
             
 
             
