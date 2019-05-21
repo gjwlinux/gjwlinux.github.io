@@ -3,7 +3,13 @@
   <entry>
     <title><![CDATA[python列表常用方法]]></title>
     <url>%2F2019%2F05%2F21%2Fpython%E5%88%97%E8%A1%A8%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[查看列表有哪些方法 12&gt;&gt;&gt; dir(list)[&apos;__add__&apos;, &apos;__class__&apos;, &apos;__contains__&apos;, &apos;__delattr__&apos;, &apos;__delitem__&apos;, &apos;__dir__&apos;, &apos;__doc__&apos;, &apos;__eq__&apos;, &apos;__format__&apos;, &apos;__ge__&apos;, &apos;__getattribute__&apos;, &apos;__getitem__&apos;, &apos;__gt__&apos;, &apos;__hash__&apos;, &apos;__iadd__&apos;, &apos;__imul__&apos;, &apos;__init__&apos;, &apos;__init_subclass__&apos;, &apos;__iter__&apos;, &apos;__le__&apos;, &apos;__len__&apos;, &apos;__lt__&apos;, &apos;__mul__&apos;, &apos;__ne__&apos;, &apos;__new__&apos;, &apos;__reduce__&apos;, &apos;__reduce_ex__&apos;, &apos;__repr__&apos;, &apos;__reversed__&apos;, &apos;__rmul__&apos;, &apos;__setattr__&apos;, &apos;__setitem__&apos;, &apos;__sizeof__&apos;, &apos;__str__&apos;, &apos;__subclasshook__&apos;, &apos;append&apos;, &apos;clear&apos;, &apos;copy&apos;, &apos;count&apos;, &apos;extend&apos;, &apos;index&apos;, &apos;insert&apos;, &apos;pop&apos;, &apos;remove&apos;, &apos;reverse&apos;, &apos;sort&apos;] append列表中追加内容 1234&gt;&gt;&gt; lst = [1,2,3,4]&gt;&gt;&gt; lst.append(5)&gt;&gt;&gt; lst[1, 2, 3, 4, 5] count统计列表中元素出现的次数 12345&gt;&gt;&gt; lst.append(1)&gt;&gt;&gt; lst.count(1)2&gt;&gt;&gt; lst.count(2)1 extend追加内容，但是不会出现列表嵌套结构，append会嵌套 12345678&gt;&gt;&gt; lst1 = [1,2,3]&gt;&gt;&gt; lst.append(lst1)&gt;&gt;&gt; lst[1, 2, 3, 4, 5, 1, [1, 2, 3]]&gt;&gt;&gt; lst.extend(lst1)&gt;&gt;&gt; lst[1, 2, 3, 4, 5, 1, [1, 2, 3], 1, 2, 3]&gt;&gt;&gt; index 返回索引位置 12&gt;&gt;&gt; lst.index(1)0 insert 插入内容，指定索引位置 1234&gt;&gt;&gt; lst.insert(0,&apos;a&apos;)&gt;&gt;&gt; lst[&apos;a&apos;, 1, 2, 3, 4, 5, 1, [1, 2, 3], 1, 2, 3]&gt;&gt;&gt; pop 删除列表内容，按照索引位置，返回删除信息 1234&gt;&gt;&gt; lst.pop(0)&apos;a&apos;&gt;&gt;&gt; lst[1, 2, 3, 4, 5, 1, [1, 2, 3], 1, 2, 3] remove 移除列表内容，不反回移除信息 1234&gt;&gt;&gt; lst.remove(1)&gt;&gt;&gt; lst[2, 3, 4, 5, 1, [1, 2, 3], 1, 2, 3]&gt;&gt;&gt; reverse 反转列表 1234&gt;&gt;&gt; lst = [1,2,3,4,5,6]&gt;&gt;&gt; lst.reverse()&gt;&gt;&gt; lst[6, 5, 4, 3, 2, 1] sort 排序 123&gt;&gt;&gt; lst.sort()&gt;&gt;&gt; lst[1, 2, 3, 4, 5, 6]]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[python字符常用方法]]></title>
