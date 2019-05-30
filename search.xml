@@ -15,6 +15,12 @@
     <title><![CDATA[django基础]]></title>
     <url>%2F2019%2F05%2F30%2Fdjango%E5%9F%BA%E7%A1%80%2F</url>
     <content type="text"></content>
+      <categories>
+        <category>web开发</category>
+      </categories>
+      <tags>
+        <tag>web开发</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[python面向对象]]></title>
