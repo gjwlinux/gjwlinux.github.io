@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[html常用标签]]></title>
     <url>%2F2019%2F05%2F30%2Fhtml%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE%2F</url>
-    <content type="text"><![CDATA[常用标签，空格和特殊符号c因解析问题，加入了 标签 作用 strong 加粗 单标签 em 倾斜 单标签 h1 -h6 标题 1-6级从大到小 单标签 p 段落标签 每一个p标签都是一段话 双标签 br 换行 单标签 hr 水平分割线 单标签 ur 无序列表，双标签，中包括li 标签双标签 装饰 ol 有序列表，双标签 ol 中li为 有序 1 2 3….. dl 定义列表，双标签 table 表格，双标签 可简单使用 border cellspacing css增加边框 tr 表格中行表示，双标签 th 表格中tr中行首加粗，双标签 td 表格中tr中行，双标签 caption 表格标题，双标签 a href 超链接，双标签 a target=”blank“ 配合href 点开后跳转新建标签页面 img src 添加图片 &#nbsp; 空格 &#copy; © 常用于网站尾部]]></content>
+    <content type="text"><![CDATA[常用标签，空格和特殊符号c因解析问题，加入了井字符 标签 作用 strong 加粗 单标签 em 倾斜 单标签 h1 -h6 标题 1-6级从大到小 单标签 p 段落标签 每一个p标签都是一段话 双标签 br 换行 单标签 hr 水平分割线 单标签 ur 无序列表，双标签，中包括li 标签双标签 装饰 ol 有序列表，双标签 ol 中li为 有序 1 2 3….. dl 定义列表，双标签 table 表格，双标签 可简单使用 border cellspacing css增加边框 tr 表格中行表示，双标签 th 表格中tr中行首加粗，双标签 td 表格中tr中行，双标签 caption 表格标题，双标签 a href 超链接，双标签 a target=”blank“ 配合href 点开后跳转新建标签页面 img src 添加图片 &#nbsp; 空格 &#copy; © 常用于网站尾部]]></content>
       <categories>
         <category>前端</category>
       </categories>
