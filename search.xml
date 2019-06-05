@@ -14,7 +14,7 @@
   <entry>
     <title><![CDATA[django安装及目录介绍]]></title>
     <url>%2F2019%2F05%2F30%2Fdjango%E5%9F%BA%E7%A1%80%2F</url>
-    <content type="text"><![CDATA[mac 安装django，python版本3.6，且加入了环境变量 123456pip3 install django #默认安装最新也可以pip install django == version 指定版本django-admin startproject mysite #创建一个django项目 名字为mysitepython3 -c &quot;import django; print(django.__path__)&quot; #获取安装路径cd /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/djangocd mysitepython3 manage.py runserver #启动创建的django 项目 mysite-|-|文件名|作用settings.py|配置文件urls.py|路由，URL对应关系wsgi.py|遵循wsgi规范，uwsgi + nginx上线使用mange.py|管理django python3 manage.py startapp cmdb #创建一个应用，-|-|文件名|作用migrations|记录数据库操作(表结构修改记录)admin|后台管理app|对当前app进行配置models|orm，通过类创建数据库表tests|单元测试views|写当前app所有业务代码]]></content>
+    <content type="text"><![CDATA[mac 安装django，python版本3.6，且加入了环境变量1234567pip3 install django #默认安装最新也可以pip install django == version 指定版本django-admin startproject mysite #创建一个django项目 名字为mysitepython3 -c &quot;import django; print(django.__path__)&quot; #获取安装路径cd /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/djangocd mysitepython3 manage.py runserver #启动创建的django 项目python3 manage.py startapp cmdb #创建一个应用 mysite 文件名 作用 settings.py 配置文件 urls.py 路由，URL对应关系 wsgi.py 遵循wsgi规范，uwsgi + nginx上线使用 mange.py 管理django cmdb 文件名 作用 migrations 记录数据库操作(表结构修改记录) admin 后台管理 app 对当前app进行配置 models orm，通过类创建数据库表 tests 单元测试 views 写当前app所有业务代码]]></content>
       <categories>
         <category>web开发</category>
       </categories>
