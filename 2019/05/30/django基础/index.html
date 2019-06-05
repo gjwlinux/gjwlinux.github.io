@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="gjwblog">
 <meta property="og:description" content="mac 安装django，python版本3.6，且加入了环境变量 123456pip3 install django #默认安装最新也可以pip install django == version 指定版本django-admin startproject mysite #创建一个django项目 名字为mysitepython3 -c &amp;quot;import django; print(d">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-05T04:02:19.000Z">
+<meta property="og:updated_time" content="2019-06-05T04:10:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="django安装及目录介绍">
 <meta name="twitter:description" content="mac 安装django，python版本3.6，且加入了环境变量 123456pip3 install django #默认安装最新也可以pip install django == version 指定版本django-admin startproject mysite #创建一个django项目 名字为mysitepython3 -c &amp;quot;import django; print(d">
@@ -357,21 +357,9 @@
 <li><p>mac 安装django，python版本3.6，且加入了环境变量</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">pip3 install django #默认安装最新也可以pip install django == version 指定版本</span><br><span class="line">django-admin startproject mysite #创建一个django项目 名字为mysite</span><br><span class="line">python3 -c &quot;import django; print(django.__path__)&quot; #获取安装路径</span><br><span class="line">cd /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django</span><br><span class="line">cd mysite</span><br><span class="line">python3  manage.py runserver #启动创建的django 项目</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>mysite</p>
-<ul>
-<li>mysite<br>  settings.py #配置文件<br>  urls.py #路由，URL对应关系<br>  wsgi.py #遵循wsgi规范，uwsgi + nginx上线使用</li>
-<li>mange.py #管理django</li>
-</ul>
+<li><p>mysite<br>-|-|<br>文件名|作用<br>settings.py|配置文件<br>urls.py|路由，URL对应关系<br>wsgi.py|遵循wsgi规范，uwsgi + nginx上线使用<br>mange.py|管理django</p>
 </li>
-<li><p>python3 manage.py startapp cmdb #创建一个应用，</p>
-<ul>
-<li>migrations 记录数据库操作(表结构修改记录)</li>
-<li>admin 后台管理</li>
-<li>app 对当前app进行配置</li>
-<li>models orm，通过类创建数据库表</li>
-<li>tests 单元测试</li>
-<li>views 写当前app所有业务代码</li>
-</ul>
+<li><p>python3 manage.py startapp cmdb #创建一个应用，<br>-|-|<br>文件名|作用<br>migrations|记录数据库操作(表结构修改记录)<br>admin|后台管理<br>app|对当前app进行配置<br>models|orm，通过类创建数据库表<br>tests|单元测试<br>views|写当前app所有业务代码</p>
 </li>
 </ul>
 
