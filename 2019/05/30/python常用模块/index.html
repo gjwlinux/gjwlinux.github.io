@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="python,">
 
 
 
@@ -79,14 +79,18 @@
 
 
 
+<meta name="description" content="os模块os常用方法listdir 查看当前目录下所有的内容getcwd 查看当前工作环境路径isdir 是不是目录isfile 是不是文件abspath 获取绝对路径system 调用shellstat 获取文件属性chmod 修改权限kill 杀死进程12345678910111213141516171819In [1]: import os">
+<meta name="keywords" content="python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python常用模块">
 <meta property="og:url" content="http://yoursite.com/2019/05/30/python常用模块/index.html">
 <meta property="og:site_name" content="gjwblog">
+<meta property="og:description" content="os模块os常用方法listdir 查看当前目录下所有的内容getcwd 查看当前工作环境路径isdir 是不是目录isfile 是不是文件abspath 获取绝对路径system 调用shellstat 获取文件属性chmod 修改权限kill 杀死进程12345678910111213141516171819In [1]: import os">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-30T10:02:15.000Z">
+<meta property="og:updated_time" content="2019-06-17T06:38:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python常用模块">
+<meta name="twitter:description" content="os模块os常用方法listdir 查看当前目录下所有的内容getcwd 查看当前工作环境路径isdir 是不是目录isfile 是不是文件abspath 获取绝对路径system 调用shellstat 获取文件属性chmod 修改权限kill 杀死进程12345678910111213141516171819In [1]: import os">
 
 
 
@@ -300,6 +304,28 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -327,7 +353,17 @@
       
 
       
-        
+        <h3 id="os模块"><a href="#os模块" class="headerlink" title="os模块"></a>os模块</h3><p>os常用方法<br>listdir 查看当前目录下所有的内容<br>getcwd 查看当前工作环境路径<br>isdir 是不是目录<br>isfile 是不是文件<br>abspath 获取绝对路径<br>system 调用shell<br>stat 获取文件属性<br>chmod 修改权限<br>kill 杀死进程<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">In [1]: import os                                                               </span><br><span class="line">In [2]: os.listdir()                                                            </span><br><span class="line">Out[2]: </span><br><span class="line">[&apos;.ansible&apos;,</span><br><span class="line"> &apos;.bash_history&apos;,</span><br><span class="line"> &apos;.bash_profile&apos;,</span><br><span class="line">In [4]: os.getcwd()                                                             </span><br><span class="line">Out[4]: &apos;/Users/gjw&apos;</span><br><span class="line">In [6]: os.path.isdir(&apos;test&apos;)                                                   </span><br><span class="line">Out[6]: True</span><br><span class="line"></span><br><span class="line">In [7]: os.path.isfile(&apos;test&apos;)                                                  </span><br><span class="line">Out[7]: False</span><br><span class="line">In [8]: os.path.abspath(&apos;test&apos;)                                                 </span><br><span class="line">Out[8]: &apos;/Users/gjw/test&apos;</span><br><span class="line">In [10]: os.system(&apos;top&apos;)                                                       </span><br><span class="line">Out[10]: 0</span><br><span class="line">In [12]: os.stat(&apos;test&apos;)                                                        </span><br><span class="line">Out[12]: os.stat_result(st_mode=16877, st_ino=35820738, st_dev=16777220, st_nlink=2, st_uid=501, st_gid=20, st_size=68, st_atime=1556098265, st_mtime=1551781040, st_ctime=1551781040)</span><br></pre></td></tr></table></figure></p>
+<h3 id="sys-模块"><a href="#sys-模块" class="headerlink" title="sys 模块"></a>sys 模块</h3><p>platform   查看系统<br>argv 外部传入参数，列表形式<br>getfilesystemencoding 获取文件读取到内存默认编码，文件系统编码<br>getdefaultencoding 获取操作系统默认编码py3 默认utf8 而py2是ascii<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">In [13]: import sys                                                             </span><br><span class="line">In [14]: sys.platform                                                           </span><br><span class="line">Out[14]: &apos;darwin&apos;</span><br><span class="line">In [15]: sys.getfilesystemencoding()                                            </span><br><span class="line">Out[15]: &apos;utf-8&apos;</span><br><span class="line">In [16]: sys.getdefaultencoding()                                               </span><br><span class="line">Out[16]: &apos;utf-8&apos;</span><br></pre></td></tr></table></figure></p>
+<h3 id="time-模块"><a href="#time-模块" class="headerlink" title="time 模块"></a>time 模块</h3><p>time.localtime() 获取当前时间<br>time.time()  Unix时间<br>time.sleep(3)  停止三秒，三秒后返回<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">In [1]: import time                                                             </span><br><span class="line"></span><br><span class="line">In [2]: time.time()                                                             </span><br><span class="line">Out[2]: 1560752868.344692</span><br><span class="line"></span><br><span class="line">In [3]: time.localtime()                                                        </span><br><span class="line">Out[3]: time.struct_time(tm_year=2019, tm_mon=6, tm_mday=17, tm_hour=14, tm_min=27, tm_sec=53, tm_wday=0, tm_yday=168, tm_isdst=0)</span><br></pre></td></tr></table></figure></p>
+<h3 id="datetime-模块"><a href="#datetime-模块" class="headerlink" title="datetime 模块"></a>datetime 模块</h3><p>datetime.datetime.now() 获取当前时间<br>datetime.datetime.now() + datetime.timedelta(days = -1)  获取前一天时间</p>
+<pre><code>In [5]: import datetime                                                         
+In [6]: datetime.datetime.now()                                                 
+Out[6]: datetime.datetime(2019, 6, 17, 14, 28, 21, 397769)
+
+In [7]: datetime.datetime.now() + datetime.timedelta(days = -1)                 
+Out[7]: datetime.datetime(2019, 6, 16, 14, 29, 31, 698443)
+</code></pre>
       
     </div>
     
@@ -341,6 +377,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+        </div>
       
 
       
@@ -415,8 +457,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -431,7 +482,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -486,6 +537,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#os模块"><span class="nav-number">1.</span> <span class="nav-text">os模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sys-模块"><span class="nav-number">2.</span> <span class="nav-text">sys 模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#time-模块"><span class="nav-number">3.</span> <span class="nav-text">time 模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#datetime-模块"><span class="nav-number">4.</span> <span class="nav-text">datetime 模块</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

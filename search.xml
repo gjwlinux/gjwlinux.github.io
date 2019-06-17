@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[django-orm]]></title>
+    <url>%2F2019%2F06%2F10%2Fdjango-orm%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[django路由分组]]></title>
+    <url>%2F2019%2F06%2F10%2Fdjango%E8%B7%AF%E7%94%B1%E5%88%86%E7%BB%84%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
     <title><![CDATA[django-HttpResponse，render，redirect的区别]]></title>
     <url>%2F2019%2F06%2F10%2Fdjango-HttpResponse%EF%BC%8Crender%EF%BC%8Credirect%E7%9A%84%E5%8C%BA%E5%88%AB%2F</url>
     <content type="text"></content>
@@ -79,7 +89,13 @@
   <entry>
     <title><![CDATA[python常用模块]]></title>
     <url>%2F2019%2F05%2F30%2Fpython%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%9D%97%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[os模块os常用方法listdir 查看当前目录下所有的内容getcwd 查看当前工作环境路径isdir 是不是目录isfile 是不是文件abspath 获取绝对路径system 调用shellstat 获取文件属性chmod 修改权限kill 杀死进程12345678910111213141516171819In [1]: import os In [2]: os.listdir() Out[2]: [&apos;.ansible&apos;, &apos;.bash_history&apos;, &apos;.bash_profile&apos;,In [4]: os.getcwd() Out[4]: &apos;/Users/gjw&apos;In [6]: os.path.isdir(&apos;test&apos;) Out[6]: TrueIn [7]: os.path.isfile(&apos;test&apos;) Out[7]: FalseIn [8]: os.path.abspath(&apos;test&apos;) Out[8]: &apos;/Users/gjw/test&apos;In [10]: os.system(&apos;top&apos;) Out[10]: 0In [12]: os.stat(&apos;test&apos;) Out[12]: os.stat_result(st_mode=16877, st_ino=35820738, st_dev=16777220, st_nlink=2, st_uid=501, st_gid=20, st_size=68, st_atime=1556098265, st_mtime=1551781040, st_ctime=1551781040) sys 模块platform 查看系统argv 外部传入参数，列表形式getfilesystemencoding 获取文件读取到内存默认编码，文件系统编码getdefaultencoding 获取操作系统默认编码py3 默认utf8 而py2是ascii1234567In [13]: import sys In [14]: sys.platform Out[14]: &apos;darwin&apos;In [15]: sys.getfilesystemencoding() Out[15]: &apos;utf-8&apos;In [16]: sys.getdefaultencoding() Out[16]: &apos;utf-8&apos; time 模块time.localtime() 获取当前时间time.time() Unix时间time.sleep(3) 停止三秒，三秒后返回1234567In [1]: import time In [2]: time.time() Out[2]: 1560752868.344692In [3]: time.localtime() Out[3]: time.struct_time(tm_year=2019, tm_mon=6, tm_mday=17, tm_hour=14, tm_min=27, tm_sec=53, tm_wday=0, tm_yday=168, tm_isdst=0) datetime 模块datetime.datetime.now() 获取当前时间datetime.datetime.now() + datetime.timedelta(days = -1) 获取前一天时间 In [5]: import datetime In [6]: datetime.datetime.now() Out[6]: datetime.datetime(2019, 6, 17, 14, 28, 21, 397769) In [7]: datetime.datetime.now() + datetime.timedelta(days = -1) Out[7]: datetime.datetime(2019, 6, 16, 14, 29, 31, 698443)]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[python文件读写]]></title>
