@@ -84,7 +84,13 @@
   <entry>
     <title><![CDATA[python函数]]></title>
     <url>%2F2019%2F05%2F30%2Fpython%E5%87%BD%E6%95%B0%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[定义以def 关键字开头，后接函数名字和圆括号() 以冒号:结尾参数必须放在圆括号内，多个参数逗号分隔return 结束函数，默认返回Noneretrun 可以返回多个值，返回数据类型为元祖，可以用解包的方式多个变量接收多个返回参数 示例定义一个函数123456789101112131415161718192021222324252627282930313233343536373839In [1]: def hello(): ...: print(&apos;hello&apos;) ...: In [2]: hello() helloIn [3]: info = hello() helloIn [4]: print(info) NoneIn [5]: def hello(): ...: return &apos;nihao&apos; ...: In [6]: hello() Out[6]: &apos;nihao&apos;In [7]: info = hello() In [8]: print(info) nihaoIn [9]: def hello(): ...: return &apos;nihao&apos;,True ...: ...: In [10]: info = hello() In [11]: print(info) (&apos;nihao&apos;, True)In [12]: i,j = hello() In [13]: print(i,j) nihao True 关键字函数12345678In [1]: def count(x,y): ...: return x+y ...: In [2]: c = count(y=2,x=1) In [3]: c Out[3]: 3 默认值函数12345678In [4]: def count(x,y=10): ...: return x+y ...: In [5]: c = count(1) In [6]: c Out[6]: 11 可变位置函数，返回元祖1234567In [9]: def count(x,y,*z): ...: return x,y,z In [10]: c = count(1,2,3,4,5,6,7,8) In [11]: c Out[11]: (1, 2, (3, 4, 5, 6, 7, 8)) 可变关键字参数，返回字典1234567In [12]: def count(x,y,*z,**kw): ...: return x,y,z,kw In [13]: c = count(1,2,3,4,name=&apos;gjw&apos;) In [14]: c Out[14]: (1, 2, (3, 4), &#123;&apos;name&apos;: &apos;gjw&apos;&#125;)]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[python常用模块]]></title>
