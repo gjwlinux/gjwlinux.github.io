@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[python操作mysql数据库]]></title>
+    <url>%2F2019%2F06%2F18%2Fpython%E6%93%8D%E4%BD%9Cmysql%E6%95%B0%E6%8D%AE%E5%BA%93%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
     <title><![CDATA[django-orm]]></title>
     <url>%2F2019%2F06%2F10%2Fdjango-orm%2F</url>
     <content type="text"></content>
