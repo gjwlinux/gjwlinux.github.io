@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[列表生成式，生成器，迭代器]]></title>
+    <url>%2F2019%2F07%2F09%2F%E5%88%97%E8%A1%A8%E7%94%9F%E6%88%90%E5%BC%8F%EF%BC%8C%E7%94%9F%E6%88%90%E5%99%A8%EF%BC%8C%E8%BF%AD%E4%BB%A3%E5%99%A8%2F</url>
+    <content type="text"><![CDATA[123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354In [10]: a = [1,2,3,4,5]In [12]: [i+1 for i in a] Out[12]: [2, 3, 4, 5, 6]In [18]: a = (i+1 for i in a) In [19]: next(a) Out[19]: 2In [20]: next(a) Out[20]: 3In [21]: next(a) Out[21]: 4In [22]: next(a) Out[22]: 5In [23]: next(a) Out[23]: 6In [24]: next(a) ---------------------------------------------------------------------------StopIteration Traceback (most recent call last)&lt;ipython-input-24-15841f3f11d4&gt; in &lt;module&gt;----&gt; 1 next(a)斐波那契数In [32]: def fib(n): ...: count = 0 ...: a = 0 ...: b = 1 ...: while count &lt; n: ...: tmp = a ...: a = b ...: b = tmp + b ...: yield b ...: count += 1 In [35]: a = fib(20) In [36]: next(a) Out[36]: 1In [37]: next(a) Out[37]: 2In [38]: next(a) Out[38]: 3In [39]: next(a) Out[39]: 5In [40]: next(a) Out[40]: 8]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[python操作mysql数据库]]></title>
     <url>%2F2019%2F06%2F18%2Fpython%E6%93%8D%E4%BD%9Cmysql%E6%95%B0%E6%8D%AE%E5%BA%93%2F</url>
     <content type="text"></content>
