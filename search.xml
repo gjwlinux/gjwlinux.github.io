@@ -191,4 +191,209 @@
         <tag>Python</tag>
       </tags>
   </entry>
+  <entry>
+    <title><![CDATA[Kubernetes简介]]></title>
+    <url>%2F2019%2F05%2F17%2Fkubernetes-e7-ae-80-e4-bb-8b%2F</url>
+    <content type="text"><![CDATA[Kubernetes是容器集群管理系统，是一个开源的平台，可以实现容器集群的自动 化部署、自动扩缩容、维护等功能，因为k中间有8个字母，简称k8s。 使用k8s的好处 快速部署应用快速扩展应用无缝对接新的应用功能节省资源，优化硬件资源的使用 k8s不是什么 k8s并不是传统的PaaS(平台即服务)系统。k8s不限制支持应用的类型，不限制应用框架，但限制受支持的语言 runtimes。k8s不提供中间件、数据处理框架、数据库或者集群存储系统(如Ceph)作 为内置服务。k8s不部署源码不编译应用。k8s允许用户选择自己的日志、监控和报警系统。k8s不提供或授权一个全面的应用程序配置 语言/系统。k8s不提供任何机器配置、维护、管理或者自修复系统。 k8s集群对象 k8s集群一切皆对象，常见对象，标准资源pod k8s容器最小单元一个pod可以跑多个容器，多个容器组成一个podnamespace 命名空间，交付到不同名称空间的pod，通讯时要加上名称空间deployment pod的控制器，pod状态管理daemonset 每个node都要起一个service 统一接入口，发现pod，代理pod，负载均衡podingress 外部访问 k8s主要组件 master 控制节点etcd 存储，保存集群数据，自带高可用机制，但是要部署奇数，避免脑裂apiserver 协调调度scheduler pod资源调度器controller-manager 管理集群，按照既定的策略运行 node 运算节点 kubelet 与docerk通讯交互kube-proxy 维护c网络，集群网络 addons 插件 coredns 维护对应关系service与clusteripflannel 维护p网络，pod跨宿主机通讯treaeik ingress集群内部服务为集群外提供服务]]></content>
+      <categories>
+        <category>未分类</category>
+      </categories>
+      <tags>
+        <tag>容器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[bash命令执行无返回事件]]></title>
+    <url>%2F2019%2F05%2F06%2Fbash-e5-91-bd-e4-bb-a4-e6-89-a7-e8-a1-8c-e6-97-a0-e8-bf-94-e5-9b-9e-e4-ba-8b-e4-bb-b6%2F</url>
+    <content type="text"><![CDATA[开发人员反映测试机器卡怀疑磁盘满了，登陆本地服务器后发现 ls df -h 执行卡死control + c也无法结束，初步怀疑是磁盘，文件系统，使用mount后发现192.168.8.61 nfs挂载， 近期有基础办公环境迁移事件，ping此地址后不通，与it/开发人员确认后，没有使用此目录，果断卸载，后发现正常使用]]></content>
+      <categories>
+        <category>未分类</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[html常用标签]]></title>
+    <url>%2F2019%2F04%2F30%2Fhtml-e5-b8-b8-e7-94-a8-e6-a0-87-e7-ad-be%2F</url>
+    <content type="text"><![CDATA[整理了一些html常用标签，记录总结： strong 加粗 单标签em 倾斜 单标签h1 -h6 标题 1-6级从大到小 单标签p 段落标签 每一个p标签都是一段话 双标签br 换行 单标签hr 水平分割线 单标签ur 无序列表，双标签，中包括li 标签双标签 装饰ol 有序列表，双标签 ol 中li为 有序 1 2 3…..dl 定义列表，双标签table 表格，双标签 可简单使用 border cellspacing css增加边框tr 表格中行表示，双标签th 表格中tr中行首加粗，双标签td 表格中tr中行，双标签caption 表格标题，双标签a href 超链接，双标签a target=”_blank_“ 配合href 点开后跳转新建标签页面img src 添加图片&nbsp; 空格&copy; © 常用于网站尾部]]></content>
+      <categories>
+        <category>html</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[MongoDB使用mongoexport批量导出数据]]></title>
+    <url>%2F2019%2F04%2F26%2Fmongodb-e4-bd-bf-e7-94-a8mongoexport-e6-89-b9-e9-87-8f-e5-af-bc-e5-87-ba-e6-95-b0-e6-8d-ae%2F</url>
+    <content type="text"><![CDATA[最近在在查询mongo数据时遇到了一个批量导出的需求，所以下面介绍下MongoDB mongoexport使用方法: 首先看一下常用参数: -h,–host ：代表远程连接的数据库地址，默认连接本地Mongo数据库；–port：代表远程连接的数据库的端口，默认连接的远程端口27017；-u,–username：代表连接远程数据库的账号，如果设置数据库的认证，需要指定用户账号；-p,–password：代表连接数据库的账号对应的密码；-d,–db：代表连接的数据库；-c,–collection：代表连接数据库中的集合；-f, –fields：代表集合中的字段，可以根据设置选择导出的字段；–type：代表导出输出的文件类型，包括csv和json文件；-o, –out：代表导出的文件名；-q, –query：代表查询条件；–skip：跳过指定数量的数据；–limit：读取指定数量的数据记录； 在导出前首先确定，查询语句是否是正确的: 查询为复杂查询，使用了and因为有时间条件限制 ，其中new data 是通过ISODate(“2019-04-24T00:00:00.00Z”).valueOf()得出，这个得出的时间为格林尼治时间，与北京时间相差8小时，也就是+8为当前系统时间 然后使用mongoexport命令查询，注意命令在安装目录下的bin下，如果没做软连接会提示没有命令，在脚本中也注意绝对路径的使用: #!/bin/bash zid=(15610)for i in ${zid[*]}; do mongoexport -d tank -c z$i -q ‘{$and:[{“request” : “areateamwar.takegems”},{ “time” : { “$gte” : new Date(1556064000000) , “$lt” : new Date(1556236800000) } }]}’ –out ztakegems$i.txtdone #其实就是将 -q 里填入查询条件 查看结果: 至此所需内容已批量循环导出，剩下的可以通过scp rsync 等方法放至本地]]></content>
+      <categories>
+        <category>mongodb</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[python生成配置文件]]></title>
+    <url>%2F2019%2F04%2F04%2Fpython-e9-85-8d-e7-bd-ae-e6-96-87-e4-bb-b6-e7-94-9f-e6-88-90%2F</url>
+    <content type="text"><![CDATA[运维工作中，有很多时候需要改配置文件，或者写配置文件，这篇文章主要记录通过python str模版方法生成配置文件，适用不复杂情况，如果配置文件复杂就需要用jinjia2，小胡子等方法生成 str模版示例: tpl模版 &lt;host&gt;{host}&lt;/host&gt; &lt;user&gt;{user}&lt;/user&gt; python代码 tpl_file = ‘mysql.tpl’ conf_file = ‘mysql_conf’ tpl = open(tpl_file).read() open(conf_file,’wt’).write(tpl.format(host=’127.0.0.1’,user=’test’)) 结果 gjwdeMacBook-Pro:py gjw$ cat mysql_conf 127.0.0.1 test 如果要生成配置文件带有{} 需要将配置文件中{ {}}取消歧义，注意，不是传递的值{ {mysql}}取消]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[普罗米修斯监控介绍]]></title>
+    <url>%2F2019%2F03%2F25%2Fe6-99-ae-e7-bd-97-e7-b1-b3-e4-bf-ae-e6-96-af-e7-9b-91-e6-8e-a7-e4-bb-8b-e7-bb-8d%2F</url>
+    <content type="text"><![CDATA[本文内容主要介绍普罗米休斯特性 简介 2012年诞生,监控与报警系统的集合, soundcloud 创建,2016年加入cncf 成为k8s 后加入该组织第二个成员开源,多组织联合维护开发 特性 基于时间序列模型,数据精准(时间序列: 一系列有序数据,等时时间间隔的采样数据),基于k,v数据模型,快速,易开发,维护,采用http,两种采集模式(pull push)开源,大量插件 框架架构 类cs架构运行模式,一个进程方式启动,之后多进程多线程实现监控数据收集、计算、查询、更新、存储 存储方式 采用时间序列方式存储,存储在本地磁盘,每两个小时间隔来分割block存储,每一个块中又分为多个chunk文件chunk文件是用来存放采集来的时间序列数据,index和 metadata是chunk的子集index文件是对metrics(采集一次k／v数据叫做metrics) 和labels标签进行索引存储在chunk中metadata又称中介数据、中继数据,用来支持如指示存储位置、历史数据、资源查找、文件记录等功能普罗米修斯会将采集中的数据先放入内存中,以类似缓存的方式加快搜索访问当出现宕机时,会有一种保护机制WAL,可以定期将数据存入硬盘中以chunk来表示,并在重启后进行恢复内存最后图中metadata画的过程中出现了输入错误，大家见谅 缺点 数据采集精度大,如果集群数量太大,监控有性能瓶颈,暂不支持集群(1.8版本以后开始支持增加remote read配置http拉取数据),对磁盘资源消耗也很大,学习成本大,数学命令行 插件 exporter Prometheus支持许多种exporter，如HAProxy，Jenkins，MySQL等 插件 pushgateway Prometheus 采用 pull 模式，可能由于不在一个子网或者防火墙原因，导致 Prometheus 无法直接拉取各个 target 数据，在监控业务数据的时候，需要将不同数据汇总, 由 Prometheus 统一收集。它就相当于一个缓存，当数据采集完成之后，就上传到这里，由Prometheus稍后再pull过来。 插件 alertmanager Alertmanager 主要用于接收 Prometheus 发送的告警信息，它支持丰富的告警通知渠道，而且很容易做到告警信息进行去重，降噪，分组等]]></content>
+      <categories>
+        <category>监控</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[jenkins脚本启动jar包失败]]></title>
+    <url>%2F2019%2F03%2F22%2Fjenkins-e5-90-af-e5-8a-a8jar-e5-8c-85-e5-a4-b1-e8-b4-a5%2F</url>
+    <content type="text"><![CDATA[最近遇到一个问题，jenkins自由风格项目，脚本启动jar包启动失败，单独在服务器执行脚本没问题，也没有报错，原因为启动jar包需要进入对应目录，特此记录 最初执行方式如下: 执行无报错但是jar包未启动 更改后: 启动成功]]></content>
+      <categories>
+        <category>爬坑之路</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[python 统计ip地址归属地]]></title>
+    <url>%2F2019%2F03%2F15%2Fpython-e7-bb-9f-e8-ae-a1ip-e5-9c-b0-e5-9d-80-e5-bd-92-e5-b1-9e-e5-9c-b0%2F</url>
+    <content type="text"><![CDATA[接到一个运营需求，统计地区玩家分布数量，使用17MonIPpython库完成了这个统计代码如下: 需要pip安装库 import os from concurrent.futures import ThreadPoolExecutor from collections import Counter import IP ip_list = Counter() lst = [] addr_lst = [] t_list = [] with open(r’ip.txt’) as f: for line in f: lst.append(line.strip(‘\n’).strip(‘\t’)) def func(i): addr = IP.find(i) addr_lst.append(addr) t_pool = ThreadPoolExecutor(os.cpu_count() * 5) for i in lst: t_pool.submit(func, i) t_pool.shutdown() ip_list.update(addr_lst) print(ip_list) 最后数据处理完成（ip是从数据库中查询保存的）： 如果看着\t不爽的话，先把字符串切割成列表，再join成字符串。 相关库github 地址:https://github.com/17mon/python]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[github私库release文件下载]]></title>
+    <url>%2F2019%2F03%2F05%2Fgithub-e7-a7-81-e5-ba-93release-e6-96-87-e4-bb-b6-e4-b8-8b-e8-bd-bd%2F</url>
+    <content type="text"><![CDATA[1.token获取 选择完成后点最下方创建，会给出一个token，只显示一次，需要保存好 2.文件下载 附送脚本: echo “GITHUB_API_TOKEN=youtoken” &gt;&gt;~/.secrets #!/bin/bashCWD=”$(cd -P – “$(dirname – “$0”)” &amp;&amp; pwd -P)” # Check dependencies.set -etype curl grep sed tr &gt;&amp;2xargs=$(which gxargs || which xargs) # Validate settings.[ -f ~/.secrets ] &amp;&amp; source ~/.secrets[ “$GITHUB_API_TOKEN” ] || { echo “Error: Please define GITHUB_API_TOKEN variable.” &gt;&2; exit 1; }[ $# -ne 4 ] &amp;&amp; { echo “Usage: $0 [owner] [repo] [tag] [name]“; exit 1; }[ “$TRACE” ] &amp;&amp; set -xread owner repo tag name &lt;&lt;&lt;$@ # Define variables.GH_API=”https://api.github.com&quot;GH_REPO=”$GH_API/repos/$owner/$repo”GH_TAGS=”$GH_REPO/releases/tags/$tag”AUTH=”Authorization: token $GITHUB_API_TOKEN”WGET_ARGS=”–content-disposition –auth-no-challenge –no-cookie”CURL_ARGS=”-LJO#” # Validate token.curl -o /dev/null -sH “$AUTH” $GH_REPO || { echo “Error: Invalid repo, token or network issue!”; exit 1; } # Read asset tags.response=$(curl -sH “$AUTH” $GH_TAGS)# Get ID of the asset based on given name.eval $(echo “$response” | grep -C3 “name.:.\+$name” | grep -w id | tr : = | tr -cd ‘[[:alnum:]]=’)[ “$id” ] || { echo “Error: Failed to get asset id, response: $response” | awk ‘length($0)&lt;100’ &gt;&2; exit 1; }GH_ASSET=”$GH_REPO/releases/assets/$id” # Download asset file.echo “Downloading asset…” &gt;&amp;2curl $CURL_ARGS -H ‘Accept: application/octet-stream’ “$GH_ASSET?access_token=$GITHUB_API_TOKEN”echo “$0 done.” &gt;&amp;2 #3使用方法sh get.sh username test v0.1 ***.py（用户 存储库 tag 文件名）]]></content>
+      <categories>
+        <category>Linux基础</category>
+        <category>爬坑之路</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[监控设计概述]]></title>
+    <url>%2F2019%2F03%2F04%2Fe7-9b-91-e6-8e-a7-e6-a6-82-e8-bf-b0%2F</url>
+    <content type="text"><![CDATA[监控是什么？ 说⽩了 就是⽤⼀种形式 去盯着 观察服务器 把服 务器的各种⾏为表现都显示出来 ⽤以发现问题 和不⾜。报警是什么？ 监控和报警这两个词⼀定要分开说，分开理解！ 监控是监控 报警是报警。 监控是把⾏为表现展示出来，⽤来观察的，报警则是，当监控获取的数据，发⽣异常并且到达了某个临界点的时候，采⽤各种途径来通知运维⼈员。 1 监控架构设计 评估 业务流程，框架，体系 业务／系统／网络／代码／日志／用户行为／等监控 业务: qps dau 访问状态 用户接口 系统: cpu 内存 磁盘 等 网络: 延迟 丢包 进出口流量 代码: 开发配合 日志: elk （系统，业务) 2.监控系统搭建 服务端 客户端 采集程序单点测试 采集程序批量部署 服务端 ha 图形化搭建 报警系统测试 报警规则测试 监控 &amp; 报警联合测试 上线 3 稳定性测试 一段时间后: 单点服务部署后，对服务器，业务是否有影响 集群服务部署后，对服务器，业务是否有影响 4 自动化监控 批量部署 salt ansible]]></content>
+      <categories>
+        <category>监控</category>
+      </categories>
+      <tags>
+        <tag>监控</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[mysql主从复制错误]]></title>
+    <url>%2F2019%2F01%2F22%2Fmysql-e4-b8-bb-e4-bb-8e-e5-a4-8d-e5-88-b6-e9-94-99-e8-af-af%2F</url>
+    <content type="text"><![CDATA[近期公司即将放假，巡检mysql主从，发现两个问题，总结记录: 错误:1236could not find first log file name in binary log index fileslave操作:stop slave;master 操作:flush logs; #生成新的binlog文件show master status; #查看日志文件和位置slave操作:change master to master_log_file=’mysql-bin.000325’ , master_log_pos=2326356;start slave; 错误:Relay log read failure: Could not parse relay log event entry. The possible reasons are: the master’s binary log is corrupted (you can check this by running ‘mysqlbinlog’ on the binary log), the slave’s relay log is corrupted (you can check this by running ‘mysqlbinlog’ on the relay log), a network problem, or a bug in the master’s or slave’s MySQL code. If you want to check the master’s binary log or slave’s relay log, you will be able to know their names by issuing ‘SHOW SLAVE STATUS’ on this slave. slave操作:show slave status\G; #拿出以下两个信息Master_Log_FileExec_Master_Log_Pos stop slave;change master to master_log_file=’mysql-bin.000325’ , master_log_pos=2326356;start slave;写在最后，如果主从错误问题解决不了，最快的方式，重做主从]]></content>
+      <categories>
+        <category>爬坑之路</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[Python分析Nginx日志]]></title>
+    <url>%2F2019%2F01%2F21%2Fpython-e5-88-86-e6-9e-90nginx-e6-97-a5-e5-bf-97%2F</url>
+    <content type="text"><![CDATA[python 实现nginx 日志 ip，url，状态码统计，并取TOP10 #encoding: utf-8 fd = open(‘access.log’, ‘rt’) #打开日志，读文本模式 stats = {} for i in fd: nodes = i.split() #空格切分 ，按照索引0就是ip，6是url，8是状态码 key = &apos;{ip}@{url}@{status\_code}&apos;.format(ip=nodes\[0\], url=nodes\[6\], status\_code=nodes\[8\])#字符串 if key notin stats: #如果存在+1 不存在=1 stats\[key\] = 1 else: stats\[key\] += 1 fd.close() lines = [] for key, value in stats.items(): lines.append((value, key)) #遍历，存储 print(lines[:2]) lines.sort() #sort 排序 tpl = ‘|{ip:&lt;25}|{url:&lt;70}|{status_code:&lt;8}|{count:&lt;8}|’ #自定义模版 header = tpl.format(ip=’ip’, url=’url’, status_code=’code’, count=’count’) print(‘-‘ * len(header)) print(header) print(‘-‘ * len(header)) for v, k in lines[-1:-11:-1]: #通过索引取前10 nodes = k.split(&apos;@&apos;) print(tpl.format(ip=nodes\[0\], url=nodes\[1\], status_code=nodes\[2\], count=value)) print(‘-‘ * len(header))]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[zabbix自定义监控排错过程]]></title>
+    <url>%2F2018%2F12%2F21%2Fzabbix-e8-87-aa-e5-ae-9a-e4-b9-89-e7-9b-91-e6-8e-a7-e6-8b-8d-e9-94-99-e8-bf-87-e7-a8-8b%2F</url>
+    <content type="text"><![CDATA[上午在帮一位同事查看自定义监控未生效时，发现一些问题，在此记录总结 1.开启自定义key选项zabbix_agentd.confUnsafeUserParameters=1 # 默认为0，表示不允许自定义keyUserParameter=你的脚本全路径加执行方式 2.脚本执行权限chmod +x xxx.sh 3.确认server端是否可以获取agent 数据 zabbix_get -s agent.ip -p 10050 -k 自定义key 4.延迟数据以上问题，在解决问题重启zabbix后，发现短期没数据，根据个人网路情况 5.解决问题的思路通过osi 七层模型，从物理层，依次往上排查，日志是最好的帮手。]]></content>
+      <categories>
+        <category>爬坑之路</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[Mac vm fusion 安装]]></title>
+    <url>%2F2018%2F12%2F19%2Fmac-vm-fusion-e5-ae-89-e8-a3-85%2F</url>
+    <content type="text"><![CDATA[vm fusion 是Mac虚拟化产品之一，这篇文章主要介绍安装及ip分配静态化 下载安装官方地址： https://www.vmware.com/products/fusion.html vmware fusion 10 pro 序列号 FG3TU-DDX1M-084CY-MFYQX-QC0RD 按照固定版本号，下载后，直接下一步安装即可 虚拟机ip地址固定cd /Library/Preferences/VMware\ Fusion/ 确定虚拟机nat网卡 cat networking 确定网关 cd vmnet8/ cat nat.conf 已安装好的centos系统固定ip 更改dhcp为静态并配置 cd /etc/sysconfig/network-scripts vi ifcfg-ens33 BOOTPROTO=”static” IPADDR=172.16.181.10 NETMASK=255.255.255.0 GATEWAY=172.16.181.2 DNS1=172.16.181.2 DNS2=8.8.8.8 #重启网卡 systemctl restart network #或： /etc/init.d/network restart]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[python基础(四)]]></title>
+    <url>%2F2018%2F12%2F17%2Fpython-e5-9f-ba-e7-a1-80-e5-9b-9b%2F</url>
+    <content type="text"><![CDATA[在前几篇文章中，我们主要了解了python的一些基础内容，此篇文章，将主要介绍python逻辑判断与循环。 变量首先在这里要提到一个概念变量 ，什么是变量，能变得量，变量其实就是在用户空间内存中临时开创了一个空间。 举几个例子： > a = 10 &gt;&gt;&gt; print(a) 10 &gt;&gt;&gt; print(‘a’) a 此时我们发现，把10赋值给了a ，a就是一个变量，打印时不需要加引号，否则就是字符串 逻辑判断有哪些？and，or ，not。 从字面上来看，and就是和，or就是或者，not就是不是，那么在python中，他是如何理解这些逻辑判断的呢？ > print(‘True’ and ‘False’) False &gt;&gt;&gt; print(‘True’ or ‘False’) True 在以上执行结果中得出结论，and 两个值必须同时为真，结果为真，而or，一个为真，结果则为真。 逻辑判断–ifif判断，python中if判断是逻辑判断中最常用的语法，语法为: if 条件: pass (条件是真，执行此条) else: pass (else，否则执行这条) 下面，请看一个示例： num = int(input(‘请输入你的成绩: ‘)) if num &gt;= 90: print(&apos;优秀&apos;) elif num &gt;= 70: print(&apos;良&apos;) elif num &gt;= 60: print(&apos;及格&apos;) else: print(&apos;不及格&apos;) 此时发现程序会让输入一个数值，input 函数就是让我们交互输入，而elif 就是如果第一条判断为假，那么，就执行下面的，如果输入的都没有符合以上判断，最后都会打印，不及格！ 在上一小节中，介绍了python判断，这一节，将介绍python中循环是如何使用 while循环whille循环是可以无限循环的循环，只要不触发条件，此时我想输入一个数字让他不断相加，并求平均值，如果按exit 那么就退出: count = 0 count1 = 0 while True: num = input(&apos;请输入一个数字，exit退出：&apos;) if num ==&apos;exit&apos;: print(&apos;by&apos;) exit() else: count += int(num) count1 +=1 print(count) print(count /int(count1)) 再上面代码中，定义了两个变量，一个用来求和，一个计算输入的次数求平均值，通过第一个判断可以得到，用户是否还想继续输入，如果不想那么就使用exit 退出。 循环–for 在上面我们了解了whlie，while 循环，需要定义一个条件来刹车，否则就会一直执行下去，而for循环则是进行一个迭代的过程，比如，我想打印1-10 如何打印？ for i in range(1,11): print(i) range，在这里这个函数是生成数字1-10，for，in 迭代一个对象，对象值赋值给i 最后我们依次打印了这个i得出结果 那么while 循环如何打印呢？ i = 0 while i &lt;= 9: i += 1 print(i) 首先定义了一个变量i ，while 条件中 i 是小于等于9 也就是定义了一个刹车，每次循环让，i + 1 自增，最后循环一次打印一次。]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[python基础(三)]]></title>
+    <url>%2F2018%2F12%2F17%2Fpython-e5-9f-ba-e7-a1-80-e4-b8-89%2F</url>
+    <content type="text"><![CDATA[在上一篇文章中，介绍了python数据类型，那么计算机中是否可以做四则运算呢？答案是可以的。本篇文章主要介绍python四则运算,与基础数据类型之间的转换。 python四则运算-字符串运算 > print(‘a’ * 3)aaa> print(‘a’ / 3)Traceback (most recent call last):File ““, line 1, in TypeError: unsupported operand type(s) for /: ‘str’ and ‘int’> print(‘a’ + 3)Traceback (most recent call last):File ““, line 1, in TypeError: must be str, not int> print(‘a’ - 3)Traceback (most recent call last):File ““, line 1, in TypeError: unsupported operand type(s) for -: ‘str’ and ‘int’ 此时我们发现字符串与数字，只可以相乘，得出结果，为乘数的倍数 那么字符串与字符串可以做四则运算吗？ > ‘a’ + ‘a’ ‘aa’ &gt;&gt;&gt; ‘a’ - ‘a’ Traceback (most recent call last): File ““, line 1, in TypeError: unsupported operand type(s) for -: ‘str’ and ‘str’ &gt;&gt;&gt; ‘a’ * ‘a’ Traceback (most recent call last): File ““, line 1, in TypeError: can’t multiply sequence by non-int of type ‘str’ &gt;&gt;&gt; ‘a’ / ‘a’ Traceback (most recent call last): File ““, line 1, in TypeError: unsupported operand type(s) for /: ‘str’ and ‘str’ &gt;&gt;&gt; 通过以上结果，我们可以得出，字符串与数字可以做乘法，而字符串与字符串，只能做加法，效果相当于两个字符串拼接 python四则运算–整数类型int > 1 + 12> 1 - 10> 1 * 11> 3 / 13.0 通过以上结果，我们可以得出，python中整数类型，是可以做加减乘除四则运算的，而做除法时，得出的结果是浮点数，也就是小数。 python数据类型转换在上篇文章中介绍到，’1’引号的是字符串类型，而字符串类型，是无法与数字进行除了乘法以运算，那么如何让输入的字符串类型，转换为int，又如何让int 转换为字符串呢？如果是布尔类型呢？ > int(‘1’) +23> int(‘5’) - 32> int(‘5’) * 315> int(‘5’) / 31.6666666666666667> type(int(‘5’)) > str(1) * 3‘111’> type(str(‘1’)) > str(True)‘True’> str(False)‘False’ 在以上代码中，我们可以得出，数据是可以互相进行转换的，而布尔值，转换后只是将原有的值，加了’引号’。]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[python基础(二)]]></title>
+    <url>%2F2018%2F12%2F17%2Fpython-e5-9f-ba-e7-a1-80-e4-ba-8c%2F</url>
+    <content type="text"><![CDATA[在上一节介绍中，主要介绍了python发展历史，及第一行代码print(‘hello’)。那么如果输入一个print(1),他会显示什么呢，答案还是1，二者有什么区别吗？一个数字，一个是字母。这些在python中，就是基础的数据类型。 python基础数据类型常用的有如下几个： 整数(int) ,字符串(str),布尔值(bool),列表(list),元组(tuple),字典(dict),集合(set). python数据类型–字符串str当我们打印print函数时，传入的数据类型是什么呢？这时可以使用type()函数，查看对应数据类型。 [root@node1 ~]# pythonPython 3.6.4 (default, Dec 15 2018, 19:30:08)[GCC 4.8.5 20150623 (Red Hat 4.8.5-36)] on linuxType “help”, “copyright”, “credits” or “license” for more information. > print(‘hello’)hello> type(‘hello’) 程序给我们返回了str–在python中str就是字符串，一般以’单引号’ “双引号” 来定义 字符串常用操作: > my_str=’12345’ #定义字符串 &gt;&gt;&gt; len(my_str) #字符串长度 5 &gt;&gt;&gt; max(my_str) #最大值 ‘5’ &gt;&gt;&gt; min(my_str) #最小值 ‘1’ &gt;&gt;&gt; ‘1’ in my_str #判断字符串中是否存在 True &gt;&gt;&gt; 字符串函数: count 计算字符串中出现子字符串的次数 index 计算字符串中出现子字符串位置，若不存在则报错 find 计算字符串中出现子字符串位置，若不存在则返回-1 endswith/startswith 判断字符串是否以参数结尾/开头 format 格式化字符串 isalnum/isalpha/isdigit/isnumeric 判断字符串是否某类型的字符串 join 使用字符串连接序列 lower/upper 将字符串转成小写/大写 replace 替换字符串 split/splitlines 分隔字符串为list strip 去除字符串前后的空字符 > my_str.count(‘1’)1> my_str.index(‘1’)0> my_str.find(‘1’)0> my_str.find(‘9’)-1> my_str.endswith(‘5’)True> my_str.startswith(‘1’)True> my_str = ‘abcdef’> my_str.upper()‘ABCDEF’> my_str.lower()‘abcdef’> my_str.split()[‘abcdef’]> my_str = ‘ 1 a 2 b ‘> my_str.strip()‘1 a 2 b’ python数据类型–整数int > print(1) 1 &gt;&gt;&gt; type(1) &gt;&gt;&gt; print(‘1’) 1 &gt;&gt;&gt; type(‘1’) &gt;&gt;&gt; 在以上结果中我们又尝试了带引号的数字1与不带引号的，明显得出结果带引号数据类型为str，不带为int(也就是数字类型)。 python数据类型-浮点数float有了整数，那么就有小数，小数在python中，称为浮点数： > type(1.0) python数据类型–布尔bool布尔值就两种：True，False。就是反应条件的正确与否。 真 1 True。 假 0 False。 python数据类型–列表list定义一个列表： > my_list = [1,’a’,True,1.2] > my_list [1, ‘a’, True, 1.2] 从结果可以得出，列表可以是任意数据类型 查看列表中一个元素： > my_list [1, ‘a’, True, 1.2] > my_list[0] 1 > my_list[1] ‘a’ 列表是以索引来访问，从0开始 通过for循环遍历列表，依次打印列表每一个值： > for i in my_list: … print(i) … 1 a True 1.2 列表四则运算： > my_list + my_list1 [1, ‘a’, True, 1.2, 1, 2, 3] > my_list * 3 [1, ‘a’, True, 1.2, 1, ‘a’, True, 1.2, 1, ‘a’, True, 1.2] 得出结论：列表+列表，会把内容相加，列表*数字，会将列表内容重复 列表切片操作： > my_list=list(range(0,10))#定义从0-9列表 > my_list [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] > my_list[1:] #索引从1开始到最后 [1, 2, 3, 4, 5, 6, 7, 8, 9] > my_list[:5]#索引从开始到5 [0, 1, 2, 3, 4] > my_list[1:5:2] #索引1-5，步长是2，意思是间隔2 [1, 3] > my_list[::2] #索引从开始到最后，步长为2 [0, 2, 4, 6, 8] > my_list[-1] #索引-1 代表访问最后一个元素 9 常用切片操作： 反转： > my_list[:: -1] [9, 8, 7, 6, 5, 4, 3, 2, 1, 0] 获取索引为偶数： > my_list[:: 2] [0, 2, 4, 6, 8] 获取索引为奇数： > my_list[1 :: 2] [1, 3, 5, 7, 9] 列表函数及常用操作： 查看函数 dir(),帮助函数help() append 添加元素到**list**最右侧 clear 清空**list**中的元素 copy 复制**list中的所有元素到新list**中并返回 count 计算**list**中存在相同元素的数量 extend 将一个可遍历数据中的所有元素追加到**list**后 index 获取元素在**list**中的位置 insert 在**list**指定位置添加元素 pop 弹出**list**中指定位置的元素（默认最右侧） remove 移除**list**中指定的元素 reverse**对list中元素进行反转 sort 对list中元素进行排序** > my_list.append(1) > my_list [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 1] > my_list.clear() > my_list [] > my_list = my_list1.copy() > my_list [1, 2, 3] > my_list.count(1) 1 > my_list.extend(‘xyz’) > my_list [1, 2, 3, ‘x’, ‘y’, ‘z’] > my_list.index(1) 0 > my_list.insert(1,200) > my_list [1, 200, 2, 3, ‘x’, ‘y’, ‘z’] > my_list.pop() ‘z’ > my_list.pop(1) 200 > my_list [1, 2, 3, ‘x’, ‘y’] > my_list = [1,2,3] > my_list.reverse() > my_list [3, 2, 1] > my_list.sort() > my_list [1, 2, 3] 常见操作–长度，最小，最大值： > len(my_list) 3 > min(my_list) 1 > max(my_list) 3 > my_list [1, 2, 3] python数据类型–元祖tuple 元祖操作与列表基本相同，元祖可以切片，切片与列表规则相同，开始索引位置，结束索引位置，步长。但是元祖是不可变的，不可变指的是元组的内元素的值不可变，元祖以（）定时，但是一个元素时，元祖定义需要加，： > my_tuple = (1,) > my_tuple_1 = (1) > type(my_tuple) > type(my_tuple_1) 元祖也可以同时存在多种数据类型： > my_tuple_1 = (1,’abc’,True,[123]) > my_tuple_1 (1, ‘abc’, True, [123]) 元组名**[索引]**的方式访问元组中的元素： > my_tuple_1 (1, ‘abc’, True, [123]) > my_tuple_1[1] ‘abc’ 元祖与列表一样通过for 循环遍历: > for i in my_tuple_1: … print(i) … 1 abc True [123] 元祖四则运算与常用操作： > my_tuple_1 * 3 (1, ‘abc’, True, [123], 1, ‘abc’, True, [123], 1, ‘abc’, True, [123]) > my_tuple_1 + my_tuple (1, ‘abc’, True, [123], 1) #分别获区长度，最小，最大值 > my_tuple = (1,2,3) > len(my_tuple) 3 > min(my_tuple) 1 > max(my_tuple) 3 内置函数count／index： > my_tuple = (1,1,1,2,2,3,4,5) > my_tuple.count(1) 3 > my_tuple.index(1) 0 count 计算元祖内存在数量，index 获取索引位置 字典–dict以{}定义，kv对应，元素之间逗号分隔 字典常用操作: > me = {‘name’:’gjw’,’age’:18} > me {‘name’: ‘gjw’, ‘age’: 18} > type(me) > me[‘name’] ‘gjw’ > me[‘name’] = ‘abc’ > me {‘name’: ‘abc’, ‘age’: 18} > del me[‘name’] > me {‘age’: 18} 字典函数: clear 清空dict中的元素 copy 复制dict中的所有元素到新dict中并返回 fromkeys 根据序列生成dict，序列中所有元素作为key，value为fromkeys的第二个参数，默认为None get 返回dict中key对应的值，若key不存在则返回默认值 items 将dict转化为由每个元素均为两个子元素的序列组成的dict_items，可通过list将dict_items转化为list keys 返回dict中所有的key组成的dict_keys pop 通过key弹出字典中的元素，未设置默认值，当key不存在则报错，否则返回默认值 popitem 返回dict中的某个元素组成的元组(key, value) setdefault 设置dict中key的默认值（key不存在则设置）并返回dict中key的当前值 > me.clear() > me {} > me = {‘name’:’gjw’,’age’:18} > me_new = me.copy() > me_new {‘name’: ‘gjw’, ‘age’: 18} > id(me) 4423380352 > id(me_new) 4423381856 > me.get(‘name’) ‘gjw’ > me.items() dict_items([(‘name’, ‘gjw’), (‘age’, 18)]) > me.keys() dict_keys([‘name’, ‘age’])]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[python基础(一)]]></title>
+    <url>%2F2018%2F12%2F17%2Fpython-e5-9f-ba-e7-a1-80-e4-b8-80%2F</url>
+    <content type="text"><![CDATA[python简介什么是pythonPython 是一个高层次的结合了解释性、编译性、互动性和面向对象的脚本语言。Python 的设计具有很强的可读性，相比其他语言经常使用英文关键字，其他语言的一些标点符号，它具有比其他语言更有特色语法结构。Python 是一种解释型语言： 这意味着开发过程中没有了编译这个环节。类似于PHP和Perl语言。Python 是交互式语言： 这意味着，您可以在一个Python提示符，直接互动执行写你的程序。Python 是面向对象语言: 这意味着Python支持面向对象的风格或代码封装在对象的编程技术。Python 是初学者的语言：Python 对初级程序员而言，是一种伟大的语言，它支持广泛的应用程序开发，从简单的文字处理到 WWW 浏览器再到游戏。 一张图带你了解python 什么是程序？是为实现特定目标或解决特定问题而用计算机语言编写的命令序列的集合。简单来说，电脑里面的应用都是程序来控制的，程序天天见。 第一个程序员： 第一个python程序在之前的文章提到过使用centos安装python3.6版本，那么今天先运行第一个python程序hello。 在Linux终端，输入python，并输入print()函数执行第一个程序。 [root@node1 ~]# pythonPython 3.6.4 (default, Dec 15 2018, 19:30:08)[GCC 4.8.5 20150623 (Red Hat 4.8.5-36)] on linuxType “help”, “copyright”, “credits” or “license” for more information. > print(‘hello’)hello 这时程序返回了一个结果hello。]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[centos7.4升级python3.6]]></title>
+    <url>%2F2018%2F12%2F15%2Fcentos7-4-e5-8d-87-e7-ba-a7python3-6%2F</url>
+    <content type="text"><![CDATA[升级需谨慎！最好编译安装多版本！ 环境为： [root@node1 Python-3.6.4]# cat /etc/redhat-releaseCentOS Linux release 7.4.1708 (Core) 依赖及安装包下载yum install -y zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel yum install -y wget sqlite-devel xz gcc automake zlib-devel openssl-devel epel-release wget https://www.python.org/ftp/python/3.6.4/Python-3.6.4.tgz 编译将python换为3.6tar -xvf Python-3.6.4.tgz cd Python-3.6.4 make &amp;&amp; make install mv /usr/bin/python /usr/bin/python.bak ln -s /usr/local/bin/python3 /usr/bin/python #此时进入python已经变为3.6 [root@node1 Python-3.6.4]# pythonPython 3.6.4 (default, Dec 15 2018, 19:30:08)[GCC 4.8.5 20150623 (Red Hat 4.8.5-36)] on linuxType “help”, “copyright”, “credits” or “license” for more information. > exit() 解决yum 下载出错[root@node1 Python-3.6.4]# yum install -y vimFile “/usr/bin/yum”, line 30except KeyboardInterrupt, e:^SyntaxError: invalid syntax #将如下俩个文件第一行变量python，变为python2.7 vi /usr/libexec/urlgrabber-ext-down vi /usr/bin/yum ipython下载[root@node1 ~]#/usr/local/bin/pip3.6 install ipython [root@node1 ~]#/usr/local/bin/pip3.6 install “ipython[notebook]“ [root@node1 ~]# whereis ipythonipython: /usr/bin/ipython /usr/local/bin/ipython /usr/share/man/man1/ipython.1.gz[root@node1 ~]# /usr/local/bin/ipythonPython 3.6.4 (default, Dec 15 2018, 19:30:08)Type ‘copyright’, ‘credits’ or ‘license’ for more informationIPython 7.2.0 – An enhanced Interactive Python. Type ‘?’ for help. In [1]: exit [root@node1 ~]# mv /usr/bin/ipython /usr/bin/ipython.bak[root@node1 ~]# ln -s /usr/local/bin/ipython /usr/bin/ipython]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux基础命令]]></title>
+    <url>%2F2018%2F12%2F13%2Flinux-e5-9f-ba-e7-a1-80-e5-91-bd-e4-bb-a4%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>Linux基础</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[redmine爬坑记]]></title>
+    <url>%2F2018%2F12%2F13%2Fredmine-e7-88-ac-e5-9d-91-e8-ae-b0%2F</url>
+    <content type="text"><![CDATA[故事发生在某天下午，一位运维同事安装redmine，但是迟迟未安装成功……….. 环境为centos 6.x 问题1 rails安装[root@svn openssl]# gem install rails -v=3.2.22 ERROR: While executing gem … (Gem::Exception) Unable to require openssl, install OpenSSL and rebuild Ruby (preferred) or use non-HTTPS sources 解决方法，更换ruby版本 gpg –keyserver hkp://keys.gnupg.net –recv-keys D39DC0E3 curl -L https://get.rvm.io | bash -s stable source /etc/profile.d/rvm.sh rvm reload rvm install 2.3.3 gem install rake -v 12.0.0 gem install rails -v 4.2.6 问题2 镜像源Could not verify the SSL certificate for https://ruby.taobao.org/. There is a chance you are experiencing a man-in-the-middle attack, but most likely your system doesn’t have the CA certificates needed for verification. For information about OpenSSL certificates, see http://bit.ly/ruby-ssl. To connect without using SSL, edit your Gemfile sources and change ‘https’ to ‘http’. 此问题更换http，https 尝试都无效，最后更换为源站 问题3 安装了 rmagick 提示出错An error occurred while installing rmagick 此问题为缺少依赖，需要安装依赖 yum install ImageMagick-devel yum install freetype-devel ghostscript-devel jasper-devel lcms-devel libpng-devel libtiff-devel zlib-devel libxml2-devel]]></content>
+      <categories>
+        <category>爬坑之路</category>
+      </categories>
+  </entry>
 </search>
