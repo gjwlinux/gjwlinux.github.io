@@ -250,6 +250,161 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/28/python文件读写/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="gjw">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="gjwblog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/28/python文件读写/" itemprop="url">Python文件读写</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-28T10:45:16+08:00">
+                2019-05-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li><p>语法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">open(‘file’,&apos;r/w/a&apos;)</span><br><span class="line">打开一个文件，r代表读模式，w代表写模式，w会新建文件不管你有没有，a追加内容</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>w模式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">In [1]: fd = open(&apos;test.txt&apos;,&apos;w&apos;)                                               </span><br><span class="line"></span><br><span class="line">In [2]: fd.write(&apos;1&apos;)                                                           </span><br><span class="line">Out[2]: 1</span><br><span class="line"></span><br><span class="line">In [3]:                                                                         </span><br><span class="line">Do you really want to exit ([y]/n)? y</span><br><span class="line">gjwdeMacBook-Pro:~ gjw$ cat test.txt </span><br><span class="line">1gjwdeMacBook-Pro:~ gjw$</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>r模式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">In [1]: fd = open(&apos;test.txt&apos;,&apos;r&apos;)                                               </span><br><span class="line"></span><br><span class="line">In [2]: fd.read()                                                               </span><br><span class="line">Out[2]: &apos;1&apos;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>a模式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">In [3]: fd = open(&apos;test.txt&apos;,&apos;a&apos;)                                               </span><br><span class="line"></span><br><span class="line">In [4]: fd.write(&apos;a&apos;)                                                           </span><br><span class="line">Out[4]: 1</span><br><span class="line"></span><br><span class="line">In [5]: fd = open(&apos;test.txt&apos;,&apos;r&apos;)                                               </span><br><span class="line"></span><br><span class="line">In [6]: fd.read()                                                               </span><br><span class="line">Out[6]: &apos;1a&apos;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/28/python异常处理/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1671,148 +1826,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/22/jenkins-e5-90-af-e5-8a-a8jar-e5-8c-85-e5-a4-b1-e8-b4-a5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="gjw">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="gjwblog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/22/jenkins-e5-90-af-e5-8a-a8jar-e5-8c-85-e5-a4-b1-e8-b4-a5/" itemprop="url">jenkins脚本启动jar包失败</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-22T15:17:46+08:00">
-                2019-03-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/爬坑之路/" itemprop="url" rel="index">
-                    <span itemprop="name">爬坑之路</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>最近遇到一个问题，jenkins自由风格项目，脚本启动jar包启动失败，单独在服务器执行脚本没问题，也没有报错，原因为启动jar包需要进入对应目录，特此记录 最初执行方式如下: <img src="http://www.gjwlinux.cn/wp-content/uploads/2019/03/01.png" alt> 执行无报错但是jar包未启动 更改后: <img src="http://www.gjwlinux.cn/wp-content/uploads/2019/03/02.png" alt> <img src="http://www.gjwlinux.cn/wp-content/uploads/2019/03/03.png" alt> 启动成功</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1863,7 +1876,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-count">45</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
