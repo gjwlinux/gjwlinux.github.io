@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Go语言if,swith,for]]></title>
+    <url>%2F2019%2F10%2F21%2FGo%E8%AF%AD%E8%A8%80if-swith-for%2F</url>
+    <content type="text"><![CDATA[if判断 判断变量 1234567891011121314151617181920package mainimport ( &quot;fmt&quot;)func main() &#123; a := 18 if a == 18 &#123; fmt.Println(&quot;=18&quot;) &#125;else if a &lt; 18 &#123; fmt.Println(&quot;&lt;18&quot;) &#125;else &#123; fmt.Println(&quot;&gt;18&quot;) &#125; //=18&#125; 也可以在判断中声明值 12345678910111213141516171819package mainimport ( &quot;fmt&quot;)func main() &#123; if a := 17; a == 18 &#123; fmt.Println(&quot;=18&quot;) &#125;else if a &lt; 18 &#123; fmt.Println(&quot;&lt;18&quot;) &#125;else &#123; fmt.Println(&quot;&gt;18&quot;) &#125; //&lt;18&#125; swith 语句 示例一: 1234567891011121314151617181920212223242526272829303132package mainimport &quot;fmt&quot;//定义函数，参数为int，返回值为strfunc grade(source int)string &#123; s := &quot;&quot; //根据传入值判断，如果匹配到就直接返回 //fallthrough 匹配到也可以继续向下匹配 switch &#123; case source &gt;= 90 &amp;&amp; source &lt; 100: s = &quot;A&quot; // fallthrough case source &lt; 80: s = &quot;B&quot; case source &lt; 60: s = &quot;C&quot; //如果以上都不是返回其他 default: s = &quot;其他&quot; &#125; return s&#125;func main() &#123; fmt.Println(grade(0)) fmt.Println(grade(101)) fmt.Println(grade(99)) /* B 其他 A */&#125; 示例二: 123456789101112131415package mainimport &quot;fmt&quot;func main() &#123; s:= &quot;a&quot; //判断字符串s，匹配a，b，c switch s &#123; case &quot;a&quot;,&quot;b&quot;,&quot;c&quot;: fmt.Println(&quot;找到了&quot;) default: fmt.Println(&quot;没找到&quot;) &#125; //找到了&#125; for 循环 语法:初始化语句，条件语句，结束语句123456789101112131415161718192021222324252627282930313233package mainimport &quot;fmt&quot;func main() &#123; //初始化语句，判断语句，结束条件 for i:=0;i&lt;3 ;i++ &#123; fmt.Println(i) &#125; /* 0 1 2 */ //条件放在了外面，初始化语句空着即可 i := 0 for ; i&lt;3; i++ &#123; fmt.Println(i) &#125; /* 0 1 2 */ //多个初始化语句 for i,j:=10,1;i&lt;12&amp;&amp;j&lt;3 ;i,j =i+1,j+1 &#123; fmt.Println(i,&quot; &quot;,j) &#125; /* 10 1 11 2 */&#125; rang]]></content>
+      <tags>
+        <tag>Go</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Go语言命令行交互]]></title>
     <url>%2F2019%2F10%2F21%2FGo%E8%AF%AD%E8%A8%80%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%BA%A4%E4%BA%92%2F</url>
     <content type="text"><![CDATA[123456789101112131415package mainimport &quot;fmt&quot;func main() &#123; var a1 int fmt.Println(&quot;请输出一个整数: &quot;) fmt.Scan(&amp;a1) fmt.Printf(&quot;a1=%d&quot;,a1) /* 请输出一个整数: 1 a1=1 */&#125;]]></content>

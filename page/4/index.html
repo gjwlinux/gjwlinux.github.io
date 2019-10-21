@@ -250,6 +250,169 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/15/python-e7-bb-9f-e8-ae-a1ip-e5-9c-b0-e5-9d-80-e5-bd-92-e5-b1-9e-e5-9c-b0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="gjw">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="gjwblog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/15/python-e7-bb-9f-e8-ae-a1ip-e5-9c-b0-e5-9d-80-e5-bd-92-e5-b1-9e-e5-9c-b0/" itemprop="url">python 统计ip地址归属地</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-15T18:24:00+08:00">
+                2019-03-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>接到一个运营需求，统计地区玩家分布数量，使用17MonIPpython库完成了这个统计代码如下: 需要pip安装库</p>
+<p>import os</p>
+<p>from concurrent.futures import ThreadPoolExecutor</p>
+<p>from collections import Counter</p>
+<p>import IP</p>
+<p>ip_list = Counter()</p>
+<p>lst = []</p>
+<p>addr_lst = []</p>
+<p>t_list = []</p>
+<p>with open(r’ip.txt’) as f:</p>
+<p> for line in f:</p>
+<p> lst.append(line.strip(‘\n’).strip(‘\t’))</p>
+<p>def func(i):</p>
+<p> addr = IP.find(i)</p>
+<p> addr_lst.append(addr)</p>
+<p>t_pool = ThreadPoolExecutor(os.cpu_count() * 5)</p>
+<p>for i in lst:</p>
+<p> t_pool.submit(func, i)</p>
+<p>t_pool.shutdown()</p>
+<p>ip_list.update(addr_lst)</p>
+<p>print(ip_list)</p>
+<p>最后数据处理完成（ip是从数据库中查询保存的）： <img src="http://www.gjwlinux.cn/wp-content/uploads/2019/03/WechatIMG860.jpeg" alt> 如果看着\t不爽的话，先把字符串切割成列表，再join成字符串。 相关库github 地址:<a href="https://github.com/17mon/python" target="_blank" rel="noopener">https://github.com/17mon/python</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/05/github-e7-a7-81-e5-ba-93release-e6-96-87-e4-bb-b6-e4-b8-8b-e8-bd-bd/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2285,160 +2448,6 @@ print(i)
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/17/python-e5-9f-ba-e7-a1-80-e4-b8-80/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="gjw">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="gjwblog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/17/python-e5-9f-ba-e7-a1-80-e4-b8-80/" itemprop="url">python基础(一)</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-17T10:02:21+08:00">
-                2018-12-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="python简介"><a href="#python简介" class="headerlink" title="python简介"></a>python简介</h1><h3 id="什么是python"><a href="#什么是python" class="headerlink" title="什么是python"></a>什么是python</h3><p><strong>Python</strong> 是一个高层次的结合了解释性、编译性、互动性和面向对象的脚本语言。<br><strong>Python</strong> 的设计具有很强的可读性，相比其他语言经常使用英文关键字，其他语言的一些标点符号，它具有比其他语言更有特色语法结构。<br><strong>Python</strong> 是一种解释型语言： 这意味着开发过程中没有了编译这个环节。类似于PHP和Perl语言。<br><strong>Python</strong> 是交互式语言： 这意味着，您可以在一个Python提示符，直接互动执行写你的程序。<br><strong>Python</strong> 是面向对象语言: 这意味着Python支持面向对象的风格或代码封装在对象的编程技术。<br><strong>Python</strong> 是初学者的语言：Python 对初级程序员而言，是一种伟大的语言，它支持广泛的应用程序开发，从简单的文字处理到 WWW 浏览器再到游戏。</p>
-<h3 id="一张图带你了解python"><a href="#一张图带你了解python" class="headerlink" title="一张图带你了解python"></a>一张图带你了解python</h3><p><img src="http://www.gjwlinux.cn/wp-content/uploads/2018/12/WechatIMG64379.jpeg" alt></p>
-<h3 id="什么是程序？"><a href="#什么是程序？" class="headerlink" title="什么是程序？"></a>什么是程序？</h3><p>是为实现特定目标或解决特定问题而用计算机语言编写的命令序列的集合。简单来说，电脑里面的应用都是程序来控制的，程序天天见。</p>
-<h4 id="第一个程序员："><a href="#第一个程序员：" class="headerlink" title="第一个程序员："></a>第一个程序员：</h4><p><img src="http://www.gjwlinux.cn/wp-content/uploads/2018/12/692821E8-B2A5-401C-B4A0-302358676D90.jpg" alt></p>
-<h3 id="第一个python程序"><a href="#第一个python程序" class="headerlink" title="第一个python程序"></a>第一个python程序</h3><p>在之前的文章提到过使用centos安装python3.6版本，那么今天先运行第一个python程序hello。</p>
-<p>在Linux终端，输入python，并输入print()函数执行第一个程序。</p>
-<p>[root@node1 ~]# python<br>Python 3.6.4 (default, Dec 15 2018, 19:30:08)<br>[GCC 4.8.5 20150623 (Red Hat 4.8.5-36)] on linux<br>Type “help”, “copyright”, “credits” or “license” for more information.</p>
-<blockquote>
-<blockquote>
-<p>> print(‘hello’)<br>hello</p>
-</blockquote>
-</blockquote>
-<p>这时程序返回了一个结果hello。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2489,7 +2498,7 @@ print(i)
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-count">44</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
