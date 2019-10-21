@@ -250,6 +250,173 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/15/centos7-4-e5-8d-87-e7-ba-a7python3-6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="gjw">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="gjwblog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/15/centos7-4-e5-8d-87-e7-ba-a7python3-6/" itemprop="url">centos7.4升级python3.6</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-15T19:43:29+08:00">
+                2018-12-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>升级需谨慎！最好编译安装多版本！ 环境为：</p>
+<p>[root@node1 Python-3.6.4]# cat /etc/redhat-release<br>CentOS Linux release 7.4.1708 (Core)</p>
+<h2 id="依赖及安装包下载"><a href="#依赖及安装包下载" class="headerlink" title="依赖及安装包下载"></a>依赖及安装包下载</h2><p>yum install -y zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel</p>
+<p>yum  install -y wget sqlite-devel xz gcc automake zlib-devel openssl-devel epel-release</p>
+<p>wget <a href="https://www.python.org/ftp/python/3.6.4/Python-3.6.4.tgz" target="_blank" rel="noopener">https://www.python.org/ftp/python/3.6.4/Python-3.6.4.tgz</a></p>
+<h2 id="编译将python换为3-6"><a href="#编译将python换为3-6" class="headerlink" title="编译将python换为3.6"></a>编译将python换为3.6</h2><p>tar -xvf Python-3.6.4.tgz</p>
+<p>cd Python-3.6.4</p>
+<p>make &amp;&amp; make install</p>
+<p>mv /usr/bin/python /usr/bin/python.bak</p>
+<p>ln -s /usr/local/bin/python3 /usr/bin/python</p>
+<p>#此时进入python已经变为3.6</p>
+<p>[root@node1 Python-3.6.4]# python<br>Python 3.6.4 (default, Dec 15 2018, 19:30:08)<br>[GCC 4.8.5 20150623 (Red Hat 4.8.5-36)] on linux<br>Type “help”, “copyright”, “credits” or “license” for more information.</p>
+<blockquote>
+<blockquote>
+<p>> exit()</p>
+</blockquote>
+</blockquote>
+<h2 id="解决yum-下载出错"><a href="#解决yum-下载出错" class="headerlink" title="解决yum 下载出错"></a>解决yum 下载出错</h2><p>[root@node1 Python-3.6.4]# yum install -y vim<br>File “/usr/bin/yum”, line 30<br>except KeyboardInterrupt, e:<br>^<br>SyntaxError: invalid syntax</p>
+<p>#将如下俩个文件第一行变量python，变为python2.7</p>
+<p>vi /usr/libexec/urlgrabber-ext-down</p>
+<p>vi /usr/bin/yum</p>
+<h2 id="ipython下载"><a href="#ipython下载" class="headerlink" title="ipython下载"></a>ipython下载</h2><p>[root@node1 ~]#/usr/local/bin/pip3.6 install ipython</p>
+<p>[root@node1 ~]#/usr/local/bin/pip3.6 install “ipython[notebook]“</p>
+<p>[root@node1 ~]# whereis ipython<br>ipython: /usr/bin/ipython /usr/local/bin/ipython /usr/share/man/man1/ipython.1.gz<br>[root@node1 ~]# /usr/local/bin/ipython<br>Python 3.6.4 (default, Dec 15 2018, 19:30:08)<br>Type ‘copyright’, ‘credits’ or ‘license’ for more information<br>IPython 7.2.0 – An enhanced Interactive Python. Type ‘?’ for help.</p>
+<p>In [1]: exit</p>
+<p>[root@node1 ~]# mv /usr/bin/ipython /usr/bin/ipython.bak<br>[root@node1 ~]# ln -s /usr/local/bin/ipython /usr/bin/ipython</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/13/linux-e5-9f-ba-e7-a1-80-e5-91-bd-e4-bb-a4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -574,7 +741,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">43</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

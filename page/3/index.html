@@ -250,6 +250,179 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/21/python列表常用方法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="gjw">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="gjwblog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/21/python列表常用方法/" itemprop="url">Python列表常用方法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-21T11:31:48+08:00">
+                2019-05-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li><p>查看列表有哪些方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; dir(list)</span><br><span class="line">[&apos;__add__&apos;, &apos;__class__&apos;, &apos;__contains__&apos;, &apos;__delattr__&apos;, &apos;__delitem__&apos;, &apos;__dir__&apos;, &apos;__doc__&apos;, &apos;__eq__&apos;, &apos;__format__&apos;, &apos;__ge__&apos;, &apos;__getattribute__&apos;, &apos;__getitem__&apos;, &apos;__gt__&apos;, &apos;__hash__&apos;, &apos;__iadd__&apos;, &apos;__imul__&apos;, &apos;__init__&apos;, &apos;__init_subclass__&apos;, &apos;__iter__&apos;, &apos;__le__&apos;, &apos;__len__&apos;, &apos;__lt__&apos;, &apos;__mul__&apos;, &apos;__ne__&apos;, &apos;__new__&apos;, &apos;__reduce__&apos;, &apos;__reduce_ex__&apos;, &apos;__repr__&apos;, &apos;__reversed__&apos;, &apos;__rmul__&apos;, &apos;__setattr__&apos;, &apos;__setitem__&apos;, &apos;__sizeof__&apos;, &apos;__str__&apos;, &apos;__subclasshook__&apos;, &apos;append&apos;, &apos;clear&apos;, &apos;copy&apos;, &apos;count&apos;, &apos;extend&apos;, &apos;index&apos;, &apos;insert&apos;, &apos;pop&apos;, &apos;remove&apos;, &apos;reverse&apos;, &apos;sort&apos;]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>append列表中追加内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; lst = [1,2,3,4]</span><br><span class="line">&gt;&gt;&gt; lst.append(5)</span><br><span class="line">&gt;&gt;&gt; lst</span><br><span class="line">[1, 2, 3, 4, 5]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>count统计列表中元素出现的次数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; lst.append(1)</span><br><span class="line">&gt;&gt;&gt; lst.count(1)</span><br><span class="line">2</span><br><span class="line">&gt;&gt;&gt; lst.count(2)</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>extend追加内容，但是不会出现列表嵌套结构，append会嵌套</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; lst1 = [1,2,3]</span><br><span class="line">&gt;&gt;&gt; lst.append(lst1)</span><br><span class="line">&gt;&gt;&gt; lst</span><br><span class="line">[1, 2, 3, 4, 5, 1, [1, 2, 3]]</span><br><span class="line">&gt;&gt;&gt; lst.extend(lst1)</span><br><span class="line">&gt;&gt;&gt; lst</span><br><span class="line">[1, 2, 3, 4, 5, 1, [1, 2, 3], 1, 2, 3]</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>index 返回索引位置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; lst.index(1)</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>insert 插入内容，指定索引位置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; lst.insert(0,&apos;a&apos;)</span><br><span class="line">&gt;&gt;&gt; lst</span><br><span class="line">[&apos;a&apos;, 1, 2, 3, 4, 5, 1, [1, 2, 3], 1, 2, 3]</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>pop 删除列表内容，按照索引位置，返回删除信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; lst.pop(0)</span><br><span class="line">&apos;a&apos;</span><br><span class="line">&gt;&gt;&gt; lst</span><br><span class="line">[1, 2, 3, 4, 5, 1, [1, 2, 3], 1, 2, 3]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>remove 移除列表内容，不反回移除信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; lst.remove(1)</span><br><span class="line">&gt;&gt;&gt; lst</span><br><span class="line">[2, 3, 4, 5, 1, [1, 2, 3], 1, 2, 3]</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>reverse 反转列表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; lst = [1,2,3,4,5,6]</span><br><span class="line">&gt;&gt;&gt; lst.reverse()</span><br><span class="line">&gt;&gt;&gt; lst</span><br><span class="line">[6, 5, 4, 3, 2, 1]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>sort 排序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; lst.sort()</span><br><span class="line">&gt;&gt;&gt; lst</span><br><span class="line">[1, 2, 3, 4, 5, 6]</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/21/python字符串常用方法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1651,168 +1824,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/05/github-e7-a7-81-e5-ba-93release-e6-96-87-e4-bb-b6-e4-b8-8b-e8-bd-bd/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="gjw">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="gjwblog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/05/github-e7-a7-81-e5-ba-93release-e6-96-87-e4-bb-b6-e4-b8-8b-e8-bd-bd/" itemprop="url">github私库release文件下载</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-05T19:06:05+08:00">
-                2019-03-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux基础/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux基础</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux基础/爬坑之路/" itemprop="url" rel="index">
-                    <span itemprop="name">爬坑之路</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>1.token获取 <img src="http://www.gjwlinux.cn/wp-content/uploads/2019/03/to.jpg" alt> <img src="http://www.gjwlinux.cn/wp-content/uploads/2019/03/to1.jpg" alt> 选择完成后点最下方创建，会给出一个token，只显示一次，需要保存好 2.文件下载 附送脚本:</p>
-<p>echo “GITHUB_API_TOKEN=youtoken” &gt;&gt;~/.secrets</p>
-<p>#!/bin/bash<br>CWD=”$(cd -P – “$(dirname – “$0”)” &amp;&amp; pwd -P)”</p>
-<p># Check dependencies.<br>set -e<br>type curl grep sed tr &gt;&amp;2<br>xargs=$(which gxargs || which xargs)</p>
-<p># Validate settings.<br>[ -f ~/.secrets ] &amp;&amp; source ~/.secrets<br>[ “$GITHUB_API_TOKEN” ] || { echo “Error: Please define GITHUB_API_TOKEN variable.” &gt;&2; exit 1; }<br>[ $# -ne 4 ] &amp;&amp; { echo “Usage: $0 [owner] [repo] [tag] [name]“; exit 1; }<br>[ “$TRACE” ] &amp;&amp; set -x<br>read owner repo tag name &lt;&lt;&lt;$@</p>
-<p># Define variables.<br>GH_API=”<a href="https://api.github.com&quot;" target="_blank" rel="noopener">https://api.github.com&quot;</a><br>GH_REPO=”$GH_API/repos/$owner/$repo”<br>GH_TAGS=”$GH_REPO/releases/tags/$tag”<br>AUTH=”Authorization: token $GITHUB_API_TOKEN”<br>WGET_ARGS=”–content-disposition –auth-no-challenge –no-cookie”<br>CURL_ARGS=”-LJO#”</p>
-<p># Validate token.<br>curl -o /dev/null -sH “$AUTH” $GH_REPO || { echo “Error: Invalid repo, token or network issue!”; exit 1; }</p>
-<p># Read asset tags.<br>response=$(curl -sH “$AUTH” $GH_TAGS)<br># Get ID of the asset based on given name.<br>eval $(echo “$response” | grep -C3 “name.:.\+$name” | grep -w id | tr : = | tr -cd ‘[[:alnum:]]=’)<br>[ “$id” ] || { echo “Error: Failed to get asset id, response: $response” | awk ‘length($0)&lt;100’ &gt;&2; exit 1; }<br>GH_ASSET=”$GH_REPO/releases/assets/$id”</p>
-<p># Download asset file.<br>echo “Downloading asset…” &gt;&amp;2<br>curl $CURL_ARGS -H ‘Accept: application/octet-stream’ “$GH_ASSET?access_token=$GITHUB_API_TOKEN”<br>echo “$0 done.” &gt;&amp;2</p>
-<p>#3使用方法<br>sh get.sh username test v0.1 ***.py<br>（用户 存储库 tag 文件名）</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1863,7 +1874,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">43</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
