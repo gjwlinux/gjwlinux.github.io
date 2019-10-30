@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Go语言数组]]></title>
+    <url>%2F2019%2F10%2F30%2FGo%E8%AF%AD%E8%A8%80%E6%95%B0%E7%BB%84%2F</url>
+    <content type="text"></content>
+      <tags>
+        <tag>Go</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Go语言指针]]></title>
+    <url>%2F2019%2F10%2F30%2FGo%E8%AF%AD%E8%A8%80%E6%8C%87%E9%92%88%2F</url>
+    <content type="text"></content>
+      <tags>
+        <tag>Go</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Go语言函数]]></title>
     <url>%2F2019%2F10%2F29%2FGo%E8%AF%AD%E8%A8%80%E5%87%BD%E6%95%B0%2F</url>
     <content type="text"><![CDATA[常见的函数函数定义 有输入、有输出，用来执行一个指定任务的代码块，增加代码的可重用性 无参数无返回值函数123func test1()&#123; fmt.Println(&quot;无参数，无返回值&quot;)&#125; 有参数无返回值函数123func test2(v1 int,v2 int)&#123; fmt.Println(v1,v2)&#125; 不定长参数函数123456// 需要写在最后，不可以在不定长参数后面跟其他参数func test3(args ...int) &#123; for _,n:=range args&#123; fmt.Println(n) &#125;&#125; 无参数有返回值函数12345678910//不需要return 返回具体值，会自己找对应的值func test4()(i int,s string) &#123; i = 1 s = &quot;str&quot; return &#125;//没有定义值，需要返回对应的数据类型func test5()(int,string) &#123; return 1,&quot;str&quot;&#125; 函数循环得出1-100的和1234567func test6()int &#123; sum := 0 for i:=1;i&lt;=100 ;i++ &#123; sum += i &#125; return sum&#125; 函数递归得出1-100的和1234567891011121314//传1func test7(num int)int &#123; if num == 100&#123; return 100 &#125; return num + test7(num+1)&#125;//传100func test8(num int)int &#123; if num == 1&#123; return 1 &#125; return num + test8(num-1)&#125; defer 关键字定义 defer⽤于延迟一个函数或者方法的执行 defer语句经常被用于处理成对的操作，如打开、关闭、连接、断开连接、加锁、释放锁 通过defer机制，不论函数逻辑多复杂，都能保证在任何执行路径下，资源被释放 释放资源的defer应该直接跟在请求资源的语句后，以免忘记释放资源 无论程序出不出异常，defer都会执行 代码示例123456789func main() &#123; defer fmt.Println(&quot;defer&quot;) fmt.Println(&quot;hhh&quot;)&#125;/*输出:hhhdefer*/ 多defer执行顺序 多个defer 按照先进后出的原则123456789101112func main() &#123; defer fmt.Println(&quot;333&quot;) defer fmt.Println(&quot;222&quot;) fmt.Println(&quot;hhh&quot;) defer fmt.Println(&quot;111&quot;)&#125;/*hhh111222333*/ 匿名函数匿名函数的定义 函数也是一种类型，因此可以定义一个函数类型的变量12]]></content>
