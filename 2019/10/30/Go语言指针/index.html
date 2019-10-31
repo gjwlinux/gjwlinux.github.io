@@ -79,15 +79,18 @@
 
 
 
+<meta name="description" content="变量与内存地址 go语言中指针是很容易学习的，比C中容易的多，它可以更简单地执行一些任务 每个变量都有内存地址，可以理解为变量来操作对应的内存 go语言的取地址符是&amp;amp;，放到一个变量前使用就会返回相应变量的内存地址  取变量内存地址1234567package mainimport &amp;quot;fmt&amp;quot;func main() &amp;#123;	var a int = 20	fmt.Pr">
 <meta name="keywords" content="Go">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Go语言指针">
 <meta property="og:url" content="http://yoursite.com/2019/10/30/Go语言指针/index.html">
 <meta property="og:site_name" content="gjwblog">
+<meta property="og:description" content="变量与内存地址 go语言中指针是很容易学习的，比C中容易的多，它可以更简单地执行一些任务 每个变量都有内存地址，可以理解为变量来操作对应的内存 go语言的取地址符是&amp;amp;，放到一个变量前使用就会返回相应变量的内存地址  取变量内存地址1234567package mainimport &amp;quot;fmt&amp;quot;func main() &amp;#123;	var a int = 20	fmt.Pr">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-30T03:07:13.000Z">
+<meta property="og:updated_time" content="2019-10-31T06:41:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Go语言指针">
+<meta name="twitter:description" content="变量与内存地址 go语言中指针是很容易学习的，比C中容易的多，它可以更简单地执行一些任务 每个变量都有内存地址，可以理解为变量来操作对应的内存 go语言的取地址符是&amp;amp;，放到一个变量前使用就会返回相应变量的内存地址  取变量内存地址1234567package mainimport &amp;quot;fmt&amp;quot;func main() &amp;#123;	var a int = 20	fmt.Pr">
 
 
 
@@ -318,7 +321,27 @@
       
 
       
-        
+        <h4 id="变量与内存地址"><a href="#变量与内存地址" class="headerlink" title="变量与内存地址"></a>变量与内存地址</h4><ul>
+<li>go语言中指针是很容易学习的，比C中容易的多，它可以更简单地执行一些任务</li>
+<li>每个变量都有内存地址，可以理解为变量来操作对应的内存</li>
+<li>go语言的取地址符是&amp;，放到一个变量前使用就会返回相应变量的内存地址</li>
+</ul>
+<h5 id="取变量内存地址"><a href="#取变量内存地址" class="headerlink" title="取变量内存地址"></a>取变量内存地址</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">package main</span><br><span class="line">import &quot;fmt&quot;</span><br><span class="line">func main() &#123;</span><br><span class="line"></span><br><span class="line">	var a int = 20</span><br><span class="line">	fmt.Println(&amp;a) //0xc000014058</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="值类型与指针类型"><a href="#值类型与指针类型" class="headerlink" title="值类型与指针类型"></a>值类型与指针类型</h4><ul>
+<li>普通变量存储的是对应类型的值，这些类型叫值类型  var a int = 10</li>
+<li>指针也是一个变量，用于存储另一个变量的内存地址，变量存的是值，指针存的是一个地址，这个地址指向的空间存的才是值，所以指针又叫引用类型</li>
+<li>与变量类似，使用前需要声明</li>
+<li>声明指针的格式：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var 指针变量名 *指针类型</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>#####指针的使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">package main</span><br><span class="line">import &quot;fmt&quot;</span><br><span class="line">func main() &#123;</span><br><span class="line"></span><br><span class="line">	var a int = 20</span><br><span class="line">	var ip *int</span><br><span class="line">	ip = &amp;a</span><br><span class="line">	fmt.Println(&amp;a) //0xc000014058</span><br><span class="line">	fmt.Println(ip) //0xc000090000</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>#####指针取变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">package main</span><br><span class="line">import &quot;fmt&quot;</span><br><span class="line">func main() &#123;</span><br><span class="line"></span><br><span class="line">	var a int = 20</span><br><span class="line">	var ip *int</span><br><span class="line">	ip = &amp;a</span><br><span class="line">	fmt.Println(&amp;a) //0xc000014058</span><br><span class="line">	fmt.Println(ip) //0xc000090000</span><br><span class="line">	fmt.Println(*ip) //20</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h5 id="空指针"><a href="#空指针" class="headerlink" title="空指针"></a>空指针</h5><ul>
+<li>空指针默认值是nil，16进制为0</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">package main</span><br><span class="line"></span><br><span class="line">import &quot;fmt&quot;</span><br><span class="line"></span><br><span class="line">func main() &#123;</span><br><span class="line"></span><br><span class="line">	var n *int</span><br><span class="line">	fmt.Println(n) //nil</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="值传递"><a href="#值传递" class="headerlink" title="值传递"></a>值传递</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">package main</span><br><span class="line"></span><br><span class="line">import &quot;fmt&quot;</span><br><span class="line"></span><br><span class="line">func swap(a,b *int)  &#123;</span><br><span class="line">	*a,*b = *b,*a</span><br><span class="line">&#125;</span><br><span class="line">func main() &#123;</span><br><span class="line"></span><br><span class="line">	a1,b1 := 1,2</span><br><span class="line">	swap(&amp;b1,&amp;a1)</span><br><span class="line">	fmt.Println(a1,b1)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -412,8 +435,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -483,6 +515,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#变量与内存地址"><span class="nav-number">1.</span> <span class="nav-text">变量与内存地址</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#取变量内存地址"><span class="nav-number">1.1.</span> <span class="nav-text">取变量内存地址</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#值类型与指针类型"><span class="nav-number">2.</span> <span class="nav-text">值类型与指针类型</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#空指针"><span class="nav-number">2.1.</span> <span class="nav-text">空指针</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#值传递"><span class="nav-number">2.2.</span> <span class="nav-text">值传递</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
