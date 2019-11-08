@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Go,">
 
 
 
@@ -79,14 +79,18 @@
 
 
 
+<meta name="description" content="mapmap 定义 Go语言map是引用类型，需要初始化开辟内存空间  123var m1 map[string]intm1 = make(map([string]int,10)m1[&amp;quot;xxx&amp;quot;] = 18 判断key存不存在1234567891011func main()  &amp;#123;	var m1 map[string]int	m1 = make(map[string]i">
+<meta name="keywords" content="Go">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Go语言map">
 <meta property="og:url" content="http://yoursite.com/2019/11/08/Go语言map/index.html">
 <meta property="og:site_name" content="gjwblog">
+<meta property="og:description" content="mapmap 定义 Go语言map是引用类型，需要初始化开辟内存空间  123var m1 map[string]intm1 = make(map([string]int,10)m1[&amp;quot;xxx&amp;quot;] = 18 判断key存不存在1234567891011func main()  &amp;#123;	var m1 map[string]int	m1 = make(map[string]i">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-08T02:31:47.000Z">
+<meta property="og:updated_time" content="2019-11-08T05:54:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Go语言map">
+<meta name="twitter:description" content="mapmap 定义 Go语言map是引用类型，需要初始化开辟内存空间  123var m1 map[string]intm1 = make(map([string]int,10)m1[&amp;quot;xxx&amp;quot;] = 18 判断key存不存在1234567891011func main()  &amp;#123;	var m1 map[string]int	m1 = make(map[string]i">
 
 
 
@@ -317,7 +321,21 @@
       
 
       
-        
+        <h4 id="map"><a href="#map" class="headerlink" title="map"></a>map</h4><h5 id="map-定义"><a href="#map-定义" class="headerlink" title="map 定义"></a>map 定义</h5><ul>
+<li>Go语言map是引用类型，需要初始化开辟内存空间</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var m1 map[string]int</span><br><span class="line">m1 = make(map([string]int,10)</span><br><span class="line">m1[&quot;xxx&quot;] = 18</span><br></pre></td></tr></table></figure>
+<h5 id="判断key存不存在"><a href="#判断key存不存在" class="headerlink" title="判断key存不存在"></a>判断key存不存在</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">func main()  &#123;</span><br><span class="line">	var m1 map[string]int</span><br><span class="line">	m1 = make(map[string]int,10)</span><br><span class="line">	m1[&quot;xxx&quot;] = 18</span><br><span class="line">	value,ok := m1[&quot;x&quot;]</span><br><span class="line">	if ok &#123;</span><br><span class="line">		fmt.Println(value)</span><br><span class="line">	&#125;else &#123;</span><br><span class="line">		fmt.Println(&quot;key不存在&quot;)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="map遍历"><a href="#map遍历" class="headerlink" title="map遍历"></a>map遍历</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">func main()  &#123;</span><br><span class="line">	var m1 map[string]int</span><br><span class="line">	m1 = make(map[string]int,10)</span><br><span class="line">	m1[&quot;xxx&quot;] = 18</span><br><span class="line">	m1[&quot;gjw&quot;] = 18</span><br><span class="line">	for k,v :=range m1&#123;</span><br><span class="line">		fmt.Println(k,v)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="delete删除"><a href="#delete删除" class="headerlink" title="delete删除"></a>delete删除</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">func main()  &#123;</span><br><span class="line">	var m1 map[string]int</span><br><span class="line">	m1 = make(map[string]int,10)</span><br><span class="line">	m1[&quot;xxx&quot;] = 18</span><br><span class="line">	m1[&quot;gjw&quot;] = 18</span><br><span class="line">	delete(m1,&quot;xxx&quot;)</span><br><span class="line">	fmt.Println(m1)//map[gjw:18]</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="map类型的切片"><a href="#map类型的切片" class="headerlink" title="map类型的切片"></a>map类型的切片</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">func main() &#123;</span><br><span class="line">	var s1 = make([]map[int]string,1,10)</span><br><span class="line">	s1[0] = make(map[int]string,1)</span><br><span class="line">	s1[0][1] = &quot;gjw&quot;</span><br><span class="line">	fmt.Println(s1)//[map[1:gjw]]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="值为切片的map"><a href="#值为切片的map" class="headerlink" title="值为切片的map"></a>值为切片的map</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">package main</span><br><span class="line"></span><br><span class="line">import &quot;fmt&quot;</span><br><span class="line"></span><br><span class="line">func main() &#123;</span><br><span class="line">	var s1  = make(map[string][]int,10)</span><br><span class="line">	s1[&quot;gjw&quot;] = []int&#123;1,2,3&#125;</span><br><span class="line">	fmt.Println(s1)//map[gjw:[1 2 3]]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="make与new"><a href="#make与new" class="headerlink" title="make与new"></a>make与new</h5><ul>
+<li>make和new都是用来申请内存的</li>
+<li>new很少用，一般用来给基本数据类型申请内存，<code>string</code>、<code>int</code>,返回的是对应类型的指针(*string、*int)。</li>
+<li>make是用来给<code>slice</code>、<code>map</code>、<code>chan</code>申请内存的，make函数返回的的是对应的这三个类型本身</li>
+</ul>
+
       
     </div>
     
@@ -331,6 +349,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Go/" rel="tag"># Go</a>
+          
+        </div>
       
 
       
@@ -405,8 +429,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -476,6 +509,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#map"><span class="nav-number">1.</span> <span class="nav-text">map</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#map-定义"><span class="nav-number">1.1.</span> <span class="nav-text">map 定义</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#判断key存不存在"><span class="nav-number">1.2.</span> <span class="nav-text">判断key存不存在</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#map遍历"><span class="nav-number">1.3.</span> <span class="nav-text">map遍历</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#delete删除"><span class="nav-number">1.4.</span> <span class="nav-text">delete删除</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#map类型的切片"><span class="nav-number">1.5.</span> <span class="nav-text">map类型的切片</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#值为切片的map"><span class="nav-number">1.6.</span> <span class="nav-text">值为切片的map</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#make与new"><span class="nav-number">1.7.</span> <span class="nav-text">make与new</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

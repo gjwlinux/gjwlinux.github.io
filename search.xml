@@ -13,7 +13,10 @@
   <entry>
     <title><![CDATA[Go语言map]]></title>
     <url>%2F2019%2F11%2F08%2FGo%E8%AF%AD%E8%A8%80map%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[mapmap 定义 Go语言map是引用类型，需要初始化开辟内存空间 123var m1 map[string]intm1 = make(map([string]int,10)m1[&quot;xxx&quot;] = 18 判断key存不存在1234567891011func main() &#123; var m1 map[string]int m1 = make(map[string]int,10) m1[&quot;xxx&quot;] = 18 value,ok := m1[&quot;x&quot;] if ok &#123; fmt.Println(value) &#125;else &#123; fmt.Println(&quot;key不存在&quot;) &#125;&#125; map遍历12345678910func main() &#123; var m1 map[string]int m1 = make(map[string]int,10) m1[&quot;xxx&quot;] = 18 m1[&quot;gjw&quot;] = 18 for k,v :=range m1&#123; fmt.Println(k,v) &#125;&#125; delete删除12345678func main() &#123; var m1 map[string]int m1 = make(map[string]int,10) m1[&quot;xxx&quot;] = 18 m1[&quot;gjw&quot;] = 18 delete(m1,&quot;xxx&quot;) fmt.Println(m1)//map[gjw:18] &#125; map类型的切片123456func main() &#123; var s1 = make([]map[int]string,1,10) s1[0] = make(map[int]string,1) s1[0][1] = &quot;gjw&quot; fmt.Println(s1)//[map[1:gjw]]&#125; 值为切片的map123456789package mainimport &quot;fmt&quot;func main() &#123; var s1 = make(map[string][]int,10) s1[&quot;gjw&quot;] = []int&#123;1,2,3&#125; fmt.Println(s1)//map[gjw:[1 2 3]]&#125; make与new make和new都是用来申请内存的 new很少用，一般用来给基本数据类型申请内存，string、int,返回的是对应类型的指针(*string、*int)。 make是用来给slice、map、chan申请内存的，make函数返回的的是对应的这三个类型本身]]></content>
+      <tags>
+        <tag>Go</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[GitLab8.2升级到9.5]]></title>
