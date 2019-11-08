@@ -250,6 +250,526 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/10/django基本使用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="gjw">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="gjwblog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/06/10/django基本使用/" itemprop="url">django基本使用</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-10T13:50:48+08:00">
+                2019-06-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web开发/" itemprop="url" rel="index">
+                    <span itemprop="name">web开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/06/python深浅copy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="gjw">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="gjwblog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/06/06/python深浅copy/" itemprop="url">Python深浅copy</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-06T12:01:23+08:00">
+                2019-06-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li><p>当一份嵌套格式数据，想要完全独立使用，就要用到深copy，代码示例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">In [1]: mydic = &#123;&apos;name&apos;:&apos;gjw&apos;,&apos;age&apos;:&apos;18&apos;,&apos;tel&apos;:&#123;&apos;t1&apos;:177,&apos;t2&apos;:&apos;176&apos;&#125;&#125;           </span><br><span class="line"></span><br><span class="line">In [2]: a = mydic                                                               </span><br><span class="line"></span><br><span class="line">In [3]: print(id(a),id(mydic))                                                  </span><br><span class="line">4363599304 4363599304</span><br><span class="line"></span><br><span class="line">In [4]: a = mydic.copy()                                                        </span><br><span class="line"></span><br><span class="line">In [5]: print(id(a),id(mydic))                                                  </span><br><span class="line">4365915912 4363599304</span><br><span class="line"></span><br><span class="line">In [6]: print(id(a[&apos;tel&apos;]),id(mydic[&apos;tel&apos;]))                                    </span><br><span class="line">4363599944 4363599944</span><br><span class="line"></span><br><span class="line">In [7]: import copy                                                             </span><br><span class="line"></span><br><span class="line">In [8]: a = copy.deepcopy(mydic)                                                </span><br><span class="line"></span><br><span class="line">In [9]: print(id(a),id(mydic))                                                  </span><br><span class="line">4368508752 4363599304</span><br><span class="line"></span><br><span class="line">In [10]: print(id(a[&apos;tel&apos;]),id(mydic[&apos;tel&apos;]))                                   </span><br><span class="line">4366254944 4363599944</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>通过查询内存地址得出当直接赋值时，内存地址是完全一样的</p>
+</li>
+<li>当使用浅copy，内存地址发生了变化，而嵌套数据内存地址还是没发生变化</li>
+<li>当使用deepcopy，内存地址完全发生了变化</li>
+<li>内存地址如果是一样的话，那么修改数据两个变量都会发生变化</li>
+<li>如果在嵌套格式的数据，想要完全独立，就需要deepcopy方法来实现</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/30/html常用标签/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="gjw">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="gjwblog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/30/html常用标签/" itemprop="url">html常用标签</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-30T18:04:29+08:00">
+                2019-05-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h5 id="常用标签，空格和特殊符号c因解析问题，加入了井字符"><a href="#常用标签，空格和特殊符号c因解析问题，加入了井字符" class="headerlink" title="常用标签，空格和特殊符号c因解析问题，加入了井字符"></a>常用标签，空格和特殊符号c因解析问题，加入了井字符</h5><table>
+<thead>
+<tr>
+<th>标签</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>strong</td>
+<td>加粗 单标签</td>
+</tr>
+<tr>
+<td>em</td>
+<td>倾斜 单标签</td>
+</tr>
+<tr>
+<td>h1 -h6</td>
+<td>标题 1-6级从大到小 单标签</td>
+</tr>
+<tr>
+<td>p</td>
+<td>段落标签 每一个p标签都是一段话 双标签</td>
+</tr>
+<tr>
+<td>br</td>
+<td>换行 单标签</td>
+</tr>
+<tr>
+<td>hr</td>
+<td>水平分割线 单标签</td>
+</tr>
+<tr>
+<td>ur</td>
+<td>无序列表，双标签，中包括li 标签双标签 装饰</td>
+</tr>
+<tr>
+<td>ol</td>
+<td>有序列表，双标签 ol 中li为 有序 1 2 3…..</td>
+</tr>
+<tr>
+<td>dl</td>
+<td>定义列表，双标签 </td>
+</tr>
+<tr>
+<td>table</td>
+<td>表格，双标签 可简单使用 border cellspacing css增加边框</td>
+</tr>
+<tr>
+<td>tr</td>
+<td>表格中行表示，双标签</td>
+</tr>
+<tr>
+<td>th</td>
+<td>表格中tr中行首加粗，双标签</td>
+</tr>
+<tr>
+<td>td</td>
+<td>表格中tr中行，双标签</td>
+</tr>
+<tr>
+<td>caption</td>
+<td>表格标题，双标签</td>
+</tr>
+<tr>
+<td>a href</td>
+<td>超链接，双标签</td>
+</tr>
+<tr>
+<td>a target=”<em>blank</em>“</td>
+<td>配合href 点开后跳转新建标签页面</td>
+</tr>
+<tr>
+<td>img src</td>
+<td>添加图片</td>
+</tr>
+<tr>
+<td>&#nbsp;</td>
+<td>空格</td>
+</tr>
+<tr>
+<td>&#copy;</td>
+<td>© 常用于网站尾部</td>
+</tr>
+</tbody>
+</table>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/30/django基础/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1336,506 +1856,11 @@ Out[7]: datetime.datetime(2019, 6, 16, 14, 29, 31, 698443)
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/21/python字符串常用方法/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="gjw">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="gjwblog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/21/python字符串常用方法/" itemprop="url">Python字符常用方法</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-21T10:34:34+08:00">
-                2019-05-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="字符串方法"><a href="#字符串方法" class="headerlink" title="字符串方法"></a>字符串方法</h2><ul>
-<li><p>查看字符串有哪些方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; mystr</span><br><span class="line">&apos;1,2,3,2,a,b,c,a&apos;</span><br><span class="line">&gt;&gt;&gt; dir(mystr)</span><br><span class="line">[&apos;__add__&apos;, &apos;__class__&apos;, &apos;__contains__&apos;, &apos;__delattr__&apos;, &apos;__dir__&apos;, &apos;__doc__&apos;, &apos;__eq__&apos;, &apos;__format__&apos;, &apos;__ge__&apos;, &apos;__getattribute__&apos;, &apos;__getitem__&apos;, &apos;__getnewargs__&apos;, &apos;__gt__&apos;, &apos;__hash__&apos;, &apos;__init__&apos;, &apos;__init_subclass__&apos;, &apos;__iter__&apos;, &apos;__le__&apos;, &apos;__len__&apos;, &apos;__lt__&apos;, &apos;__mod__&apos;, &apos;__mul__&apos;, &apos;__ne__&apos;, &apos;__new__&apos;, &apos;__reduce__&apos;, &apos;__reduce_ex__&apos;, &apos;__repr__&apos;, &apos;__rmod__&apos;, &apos;__rmul__&apos;, &apos;__setattr__&apos;, &apos;__sizeof__&apos;, &apos;__str__&apos;, &apos;__subclasshook__&apos;, &apos;capitalize&apos;, &apos;casefold&apos;, &apos;center&apos;, &apos;count&apos;, &apos;encode&apos;, &apos;endswith&apos;, &apos;expandtabs&apos;, &apos;find&apos;, &apos;format&apos;, &apos;format_map&apos;, &apos;index&apos;, &apos;isalnum&apos;, &apos;isalpha&apos;, &apos;isdecimal&apos;, &apos;isdigit&apos;, &apos;isidentifier&apos;, &apos;islower&apos;, &apos;isnumeric&apos;, &apos;isprintable&apos;, &apos;isspace&apos;, &apos;istitle&apos;, &apos;isupper&apos;, &apos;join&apos;, &apos;ljust&apos;, &apos;lower&apos;, &apos;lstrip&apos;, &apos;maketrans&apos;, &apos;partition&apos;, &apos;replace&apos;, &apos;rfind&apos;, &apos;rindex&apos;, &apos;rjust&apos;, &apos;rpartition&apos;, &apos;rsplit&apos;, &apos;rstrip&apos;, &apos;split&apos;, &apos;splitlines&apos;, &apos;startswith&apos;, &apos;strip&apos;, &apos;swapcase&apos;, &apos;title&apos;, &apos;translate&apos;, &apos;upper&apos;, &apos;zfill&apos;]</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>count 统计字符串中出现的个数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; mystr.count(&apos;1&apos;)</span><br><span class="line">1</span><br><span class="line">&gt;&gt;&gt; mystr.count(&apos;a&apos;)</span><br><span class="line">2</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>startswith 查看字符串是不是以什么开头,返回布尔值</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; mystr.startswith(&apos;a&apos;)</span><br><span class="line">False</span><br><span class="line">&gt;&gt;&gt; mystr.startswith(&apos;1&apos;)</span><br><span class="line">True</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>endswith 查看字符串是不是以什么结尾，返回布尔值</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; mystr.endswith(&apos;a&apos;)</span><br><span class="line">True</span><br><span class="line">&gt;&gt;&gt; mystr.endswith(&apos;1&apos;)</span><br><span class="line">False</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>find 检查字符串中是否有字符，指定开始与结尾，不存在返回-1</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; mystr.find(&apos;a&apos;,0,2)</span><br><span class="line">-1</span><br><span class="line">&gt;&gt;&gt; mystr</span><br><span class="line">&apos;1,2,3,2,a,b,c,a&apos;</span><br><span class="line">&gt;&gt;&gt; mystr.find(&apos;a&apos;,1)</span><br><span class="line">8</span><br><span class="line">&gt;&gt;&gt; mystr.find(&apos;1&apos;,0,2)</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>format 格式化输出</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; &apos;hello my name is &#123;&#125;&apos;.format(&apos;gjw&apos;)</span><br><span class="line">&apos;hello my name is gjw&apos;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>index 查找字符串索引位置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; mystr.index(&apos;1&apos;)</span><br><span class="line">0</span><br><span class="line">&gt;&gt;&gt; mystr.index(&apos;a&apos;)</span><br><span class="line">8</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>isdigit 是不是数字组成，返回布尔值</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; mystr.isdigit()</span><br><span class="line">False</span><br><span class="line">&gt;&gt;&gt; mystr1 = &apos;123&apos;</span><br><span class="line">&gt;&gt;&gt; mystr1.isdigit()</span><br><span class="line">True</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>islower 是不是小写，返回布尔值</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; mystr.islower()</span><br><span class="line">True</span><br><span class="line">&gt;&gt;&gt; mystr1 = &apos;ABC&apos;</span><br><span class="line">&gt;&gt;&gt; mystr1.islower()</span><br><span class="line">False</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>isupper 是不是大写，返回布尔值</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; mystr1.isupper()</span><br><span class="line">True</span><br><span class="line">&gt;&gt;&gt; mystr.isupper()</span><br><span class="line">False</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>join 连接字符串</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; str = &apos;-&apos;</span><br><span class="line">&gt;&gt;&gt; seq = (&apos;a&apos;, &apos;b&apos;, &apos;c&apos;)</span><br><span class="line">&gt;&gt;&gt; str.join( seq )</span><br><span class="line">&apos;a-b-c&apos;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>ljust 字符串左对齐,默认使用空格填充至指定长度的新字符串</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; str = &apos;hi&apos;</span><br><span class="line">&gt;&gt;&gt; str.ljust(10,&apos;!&apos;)</span><br><span class="line">&apos;hi!!!!!!!!&apos;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>lower 将字符串转换为小写</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; mystr = &apos;ABC&apos;</span><br><span class="line">&gt;&gt;&gt; </span><br><span class="line">&gt;&gt;&gt; mystr.lower()</span><br><span class="line">&apos;abc&apos;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>lstrip 去掉字符串左边空格，或指定字符</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; mystr = &apos;abcdef&apos;</span><br><span class="line">&gt;&gt;&gt; mystr.lstrip(&apos;a&apos;)</span><br><span class="line">&apos;bcdef&apos;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>replace 替换字符串</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; mystr.replace(&apos;f&apos;,&apos;a&apos;)</span><br><span class="line">&apos;abcdea&apos;</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>rjust 字符串右对齐,默认使用空格填充至指定长度的新字符串</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; mystr = &apos;hi&apos;</span><br><span class="line">&gt;&gt;&gt; mystr.rjust(10,&apos;!&apos;)</span><br><span class="line">&apos;!!!!!!!!hi&apos;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>split 字符串切分返回列表</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; mystr.split(&apos;c&apos;)</span><br><span class="line">[&apos;ab&apos;, &apos;ab&apos;, &apos;&apos;]</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>strip 去除指定字符</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; mystr.strip(&apos;a&apos;)</span><br><span class="line">&apos;bcabc&apos;</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>upper 将字符串变为大写</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; mystr.upper()</span><br><span class="line">&apos;ABCABC&apos;</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/17/kubernetes-e7-ae-80-e4-bb-8b/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="gjw">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="gjwblog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/17/kubernetes-e7-ae-80-e4-bb-8b/" itemprop="url">Kubernetes简介</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-17T14:55:44+08:00">
-                2019-05-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/未分类/" itemprop="url" rel="index">
-                    <span itemprop="name">未分类</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><img src="http://www.gjwlinux.cn/wp-content/uploads/2019/05/720430-20181226134529220-885595947.png" alt> Kubernetes是容器集群管理系统，是一个开源的平台，可以实现容器集群的自动 化部署、自动扩缩容、维护等功能，因为k中间有8个字母，简称k8s。 使用k8s的好处</p>
-<p>快速部署应用<br>快速扩展应用<br>无缝对接新的应用功能<br>节省资源，优化硬件资源的使用</p>
-<p>k8s不是什么</p>
-<p>k8s并不是传统的PaaS(平台即服务)系统。<br>k8s不限制支持应用的类型，不限制应用框架，但限制受支持的语言 runtimes。<br>k8s不提供中间件、数据处理框架、数据库或者集群存储系统(如Ceph)作 为内置服务。<br>k8s不部署源码不编译应用。<br>k8s允许用户选择自己的日志、监控和报警系统。<br>k8s不提供或授权一个全面的应用程序配置 语言/系统。<br>k8s不提供任何机器配置、维护、管理或者自修复系统。</p>
-<p>k8s集群对象</p>
-<p>k8s集群一切皆对象，常见对象，标准资源<br>pod k8s容器最小单元一个pod可以跑多个容器，多个容器组成一个pod<br>namespace 命名空间，交付到不同名称空间的pod，通讯时要加上名称空间<br>deployment pod的控制器，pod状态管理<br>daemonset 每个node都要起一个<br>service 统一接入口，发现pod，代理pod，负载均衡pod<br>ingress 外部访问</p>
-<p>k8s主要组件</p>
-<p>master 控制节点<br>etcd 存储，保存集群数据，自带高可用机制，但是要部署奇数，避免脑裂<br>apiserver 协调调度<br>scheduler pod资源调度器<br>controller-manager 管理集群，按照既定的策略运行</p>
-<p>node 运算节点</p>
-<p>kubelet 与docerk通讯交互<br>kube-proxy 维护c网络，集群网络</p>
-<p>addons 插件</p>
-<p>coredns 维护对应关系service与clusterip<br>flannel 维护p网络，pod跨宿主机通讯<br>treaeik ingress集群内部服务为集群外提供服务</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/06/bash-e5-91-bd-e4-bb-a4-e6-89-a7-e8-a1-8c-e6-97-a0-e8-bf-94-e5-9b-9e-e4-ba-8b-e4-bb-b6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="gjw">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="gjwblog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/06/bash-e5-91-bd-e4-bb-a4-e6-89-a7-e8-a1-8c-e6-97-a0-e8-bf-94-e5-9b-9e-e4-ba-8b-e4-bb-b6/" itemprop="url">bash命令执行无返回事件</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-06T17:21:46+08:00">
-                2019-05-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/未分类/" itemprop="url" rel="index">
-                    <span itemprop="name">未分类</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>开发人员反映测试机器卡怀疑磁盘满了，登陆本地服务器后发现 ls df -h 执行卡死control + c也无法结束，初步怀疑是磁盘，文件系统，使用mount后发现192.168.8.61 nfs挂载， <img src="http://www.gjwlinux.cn/wp-content/uploads/2019/05/01.jpg" alt>近期有基础办公环境迁移事件，ping此地址后不通，与it/开发人员确认后，没有使用此目录，果断卸载，后发现正常使用 <img src="http://www.gjwlinux.cn/wp-content/uploads/2019/05/02.jpg" alt></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1881,7 +1906,7 @@ Out[7]: datetime.datetime(2019, 6, 16, 14, 29, 31, 698443)
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">49</span>
+                  <span class="site-state-item-count">52</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
