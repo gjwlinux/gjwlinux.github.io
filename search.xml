@@ -1,14 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Go语言并发]]></title>
+    <url>%2F2019%2F11%2F14%2FGo%E8%AF%AD%E8%A8%80%E5%B9%B6%E5%8F%91%2F</url>
+    <content type="text"></content>
+      <tags>
+        <tag>Go</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Go语言异常处理]]></title>
+    <url>%2F2019%2F11%2F12%2FGo%E8%AF%AD%E8%A8%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%2F</url>
+    <content type="text"></content>
+      <tags>
+        <tag>Go</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Go语言反射]]></title>
+    <url>%2F2019%2F11%2F12%2FGo%E8%AF%AD%E8%A8%80%E5%8F%8D%E5%B0%84%2F</url>
+    <content type="text"></content>
+      <tags>
+        <tag>Go</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Go语言时间操作]]></title>
+    <url>%2F2019%2F11%2F12%2FGo%E8%AF%AD%E8%A8%80%E6%97%B6%E9%97%B4%E6%93%8D%E4%BD%9C%2F</url>
+    <content type="text"></content>
+      <tags>
+        <tag>Go</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Go语言文件操作]]></title>
+    <url>%2F2019%2F11%2F12%2FGo%E8%AF%AD%E8%A8%80%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C%2F</url>
+    <content type="text"></content>
+      <tags>
+        <tag>Go</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Go语言字符串操作]]></title>
+    <url>%2F2019%2F11%2F12%2FGo%E8%AF%AD%E8%A8%80%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
     <title><![CDATA[Go语言接口]]></title>
     <url>%2F2019%2F11%2F08%2FGo%E8%AF%AD%E8%A8%80%E6%8E%A5%E5%8F%A3%2F</url>
     <content type="text"></content>
+      <tags>
+        <tag>Go</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Go语言结构体]]></title>
     <url>%2F2019%2F11%2F08%2FGo%E8%AF%AD%E8%A8%80%E7%BB%93%E6%9E%84%E4%BD%93%2F</url>
     <content type="text"></content>
+      <tags>
+        <tag>Go</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Go语言map]]></title>
