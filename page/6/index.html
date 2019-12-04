@@ -250,6 +250,153 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/21/zabbix-e8-87-aa-e5-ae-9a-e4-b9-89-e7-9b-91-e6-8e-a7-e6-8b-8d-e9-94-99-e8-bf-87-e7-a8-8b/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="gjw">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="gjwblog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/21/zabbix-e8-87-aa-e5-ae-9a-e4-b9-89-e7-9b-91-e6-8e-a7-e6-8b-8d-e9-94-99-e8-bf-87-e7-a8-8b/" itemprop="url">zabbix自定义监控排错过程</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:49:54+08:00">
+                2018-12-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/爬坑之路/" itemprop="url" rel="index">
+                    <span itemprop="name">爬坑之路</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>上午在帮一位同事查看自定义监控未生效时，发现一些问题，在此记录总结</p>
+<h4 id="1-开启自定义key选项"><a href="#1-开启自定义key选项" class="headerlink" title="1.开启自定义key选项"></a>1.开启自定义key选项</h4><p>zabbix_agentd.conf<br>UnsafeUserParameters=1 # 默认为0，表示不允许自定义key<br>UserParameter=你的脚本全路径加执行方式</p>
+<h4 id="2-脚本执行权限"><a href="#2-脚本执行权限" class="headerlink" title="2.脚本执行权限"></a>2.脚本执行权限</h4><p>chmod +x xxx.sh</p>
+<h4 id="3-确认server端是否可以获取agent-数据"><a href="#3-确认server端是否可以获取agent-数据" class="headerlink" title="3.确认server端是否可以获取agent 数据"></a>3.确认server端是否可以获取agent 数据</h4><p> zabbix_get -s agent.ip -p 10050 -k 自定义key</p>
+<h4 id="4-延迟数据"><a href="#4-延迟数据" class="headerlink" title="4.延迟数据"></a>4.延迟数据</h4><p>以上问题，在解决问题重启zabbix后，发现短期没数据，根据个人网路情况</p>
+<h4 id="5-解决问题的思路"><a href="#5-解决问题的思路" class="headerlink" title="5.解决问题的思路"></a>5.解决问题的思路</h4><p>通过osi 七层模型，从物理层，依次往上排查，日志是最好的帮手。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/19/mac-vm-fusion-e5-ae-89-e8-a3-85/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2147,7 +2294,7 @@ print(i)
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">58</span>
+                  <span class="site-state-item-count">59</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

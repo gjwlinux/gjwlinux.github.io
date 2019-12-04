@@ -250,6 +250,146 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/08/GitLab8-2升级到11-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="gjw">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="gjwblog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/11/08/GitLab8-2升级到11-1/" itemprop="url">GitLab8.2升级到9.5</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-08T09:33:04+08:00">
+                2019-11-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="第一次尝试"><a href="#第一次尝试" class="headerlink" title="第一次尝试"></a>第一次尝试</h4><ul>
+<li>原本计划升级到11.但是升级到9.5以后发现hook可以使用了，就没有再升级了，线上版本11可以使用hook，但是本地8.2全局hook不可用，所以才有这次升级</li>
+</ul>
+<h5 id="RPM直接升级"><a href="#RPM直接升级" class="headerlink" title="RPM直接升级"></a>RPM直接升级</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">[root@publish data]# rpm -Uvh gitlab-ce-11.1.4-ce.0.el6.x86_64.rpm </span><br><span class="line">warning: gitlab-ce-11.1.4-ce.0.el6.x86_64.rpm: Header V4 RSA/SHA1 Signature, key ID f27eab47: NOKEY</span><br><span class="line">error: Failed dependencies:</span><br><span class="line">	policycoreutils-python is needed by gitlab-ce-11.1.4-ce.0.el6.x86_64</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">[root@publish data]# yum install -y policycoreutils-python</span><br><span class="line"></span><br><span class="line">[root@publish data]# rpm -Uvh gitlab-ce-11.1.4-ce.0.el6.x86_64.rpm </span><br><span class="line">warning: gitlab-ce-11.1.4-ce.0.el6.x86_64.rpm: Header V4 RSA/SHA1 Signature, key ID f27eab47: NOKEY</span><br><span class="line">Preparing...                ########################################### [100%]</span><br><span class="line">gitlab preinstall: It seems you are upgrading from 8.x version series</span><br><span class="line">gitlab preinstall: to 11.x series. It is recommended to upgrade</span><br><span class="line">gitlab preinstall: to the last minor version in a major version series first before</span><br><span class="line">gitlab preinstall: jumping to the next major version.</span><br><span class="line">gitlab preinstall: Please follow the upgrade documentation at https://docs.gitlab.com/ee/policy/maintenance.html#upgrade-recommendations</span><br><span class="line">gitlab preinstall: and upgrade to 10.8 first.</span><br><span class="line">error: %pre(gitlab-ce-11.1.4-ce.0.el6.x86_64) scriptlet failed, exit status 1</span><br><span class="line">error:   install: %pre scriptlet failed (2), skipping gitlab-ce-11.1.4-ce.0.el6</span><br><span class="line"></span><br><span class="line">[root@publish data]# rpm -ivh gitlab-ce-11.1.4-ce.0.el6.x86_64.rpm </span><br><span class="line">warning: gitlab-ce-11.1.4-ce.0.el6.x86_64.rpm: Header V4 RSA/SHA1 Signature, key ID f27eab47: NOKEY</span><br><span class="line">Preparing...                ########################################### [100%]</span><br><span class="line">	file /opt/gitlab/embedded/service/gitlab-rails/lib/support/init.d/gitlab from install of gitlab-ce-11.1.4-ce.0.el6.x86_64 conflicts with file from package gitlab-ce-8.2.2-ce.0.el6.x86_64</span><br></pre></td></tr></table></figure>
+<h5 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h5><ul>
+<li>不能直接升级，会报错</li>
+<li>去网上查看了很多篇文档，都是说要一个版本一个版本升级</li>
+</ul>
+<h4 id="第二次尝试"><a href="#第二次尝试" class="headerlink" title="第二次尝试"></a>第二次尝试</h4><h5 id="8-2-8-17"><a href="#8-2-8-17" class="headerlink" title="8.2-8.17"></a>8.2-8.17</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">[root@publish data]# yum install gitlab-ce-8.17.8-ce.0.el6 -y</span><br><span class="line">Loaded plugins: fastestmirror</span><br><span class="line">Loading mirror speeds from cached hostfile</span><br><span class="line"> * base: mirrors.huaweicloud.com</span><br><span class="line"> * extras: mirrors.aliyun.com</span><br><span class="line"> * rpmforge: mirrors.tuna.tsinghua.edu.cn</span><br><span class="line"> * updates: mirrors.aliyun.com</span><br><span class="line">Setting up Install Process</span><br><span class="line">Package matching gitlab-ce-8.17.8-ce.0.el6.x86_64 already installed. Checking for update.</span><br><span class="line">Resolving Dependencies</span><br><span class="line">--&gt; Running transaction check</span><br><span class="line">---&gt; Package gitlab-ce.x86_64 0:8.2.2-ce.0.el6 will be updated</span><br><span class="line">---&gt; Package gitlab-ce.x86_64 0:8.17.8-ce.0.el6 will be an update</span><br><span class="line">--&gt; Finished Dependency Resolution</span><br><span class="line">gitlab: Thank you for installing GitLab!</span><br><span class="line">gitlab: To configure and start GitLab, RUN THE FOLLOWING COMMAND:</span><br><span class="line"></span><br><span class="line">sudo gitlab-ctl reconfigure</span><br><span class="line"></span><br><span class="line">gitlab: GitLab should be reachable at http://gitlab.rjoy.com</span><br><span class="line">gitlab: Otherwise configure GitLab for your system by editing /etc/gitlab/gitlab.rb file</span><br><span class="line">gitlab: And running reconfigure again.</span><br><span class="line">gitlab: </span><br><span class="line">gitlab: For a comprehensive list of configuration options please see the Omnibus GitLab readme</span><br><span class="line">gitlab: https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/README.md</span><br><span class="line">gitlab: </span><br><span class="line"></span><br><span class="line">gitlab: GitLab now ships with a newer version of PostgreSQL (9.6.1), and will be used</span><br><span class="line">gitlab: as the default in the next major release. To upgrade, RUN THE FOLLOWING COMMANDS:</span><br><span class="line"></span><br><span class="line">sudo gitlab-ctl pg-upgrade</span><br><span class="line"></span><br><span class="line">gitlab: For more details, please see:</span><br><span class="line">gitlab: https://docs.gitlab.com/omnibus/settings/database.html#upgrade-packaged-postgresql-server</span><br><span class="line">gitlab: </span><br><span class="line">  Cleanup    : gitlab-ce-8.2.2-ce.0.el6.x86_64                                                                                                                                       2/2 </span><br><span class="line"></span><br><span class="line">  Verifying  : gitlab-ce-8.17.8-ce.0.el6.x86_64                                                                                                                                      1/2 </span><br><span class="line">  Verifying  : gitlab-ce-8.2.2-ce.0.el6.x86_64                                                                                                                                       2/2 </span><br><span class="line"></span><br><span class="line">Updated:</span><br><span class="line">  gitlab-ce.x86_64 0:8.17.8-ce.0.el6                                                                                                                                                     </span><br><span class="line"></span><br><span class="line">Complete!</span><br><span class="line">[root@publish data]# gitlab-ctl restart</span><br><span class="line">ok: run: gitlab-workhorse: (pid 11798) 1s</span><br><span class="line">ok: run: logrotate: (pid 11808) 0s</span><br><span class="line">ok: run: nginx: (pid 11814) 1s</span><br><span class="line">ok: run: postgresql: (pid 11836) 0s</span><br><span class="line">ok: run: redis: (pid 11838) 1s</span><br><span class="line">ok: run: sidekiq: (pid 11848) 0s</span><br><span class="line">ok: run: unicorn: (pid 11851) 0s</span><br></pre></td></tr></table></figure>
+<h5 id="8-17-9-0"><a href="#8-17-9-0" class="headerlink" title="8.17-9.0"></a>8.17-9.0</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line">[root@publish data]# yum install gitlab-ce-9.0.0-ce.0.el6 -y</span><br><span class="line">Loaded plugins: fastestmirror</span><br><span class="line">Loading mirror speeds from cached hostfile</span><br><span class="line"> * base: mirrors.huaweicloud.com</span><br><span class="line"> * extras: mirrors.aliyun.com</span><br><span class="line"> * rpmforge: mirrors.tuna.tsinghua.edu.cn</span><br><span class="line"> * updates: mirrors.aliyun.com</span><br><span class="line">Setting up Install Process</span><br><span class="line">Package matching gitlab-ce-9.0.0-ce.0.el6.x86_64 already installed. Checking for update.</span><br><span class="line">Resolving Dependencies</span><br><span class="line">--&gt; Running transaction check</span><br><span class="line">---&gt; Package gitlab-ce.x86_64 0:8.17.8-ce.0.el6 will be updated</span><br><span class="line">---&gt; Package gitlab-ce.x86_64 0:9.0.0-ce.0.el6 will be an update</span><br><span class="line">--&gt; Finished Dependency Resolution</span><br><span class="line"></span><br><span class="line">Dependencies Resolved</span><br><span class="line"></span><br><span class="line">=========================================================================================================================================================================================</span><br><span class="line"> Package                                     Arch                                     Version                                          Repository                                   Size</span><br><span class="line">=========================================================================================================================================================================================</span><br><span class="line">Updating:</span><br><span class="line"> gitlab-ce                                   x86_64                                   9.0.0-ce.0.el6                                   gitlab-ce                                   272 M</span><br><span class="line"></span><br><span class="line">Transaction Summary</span><br><span class="line">=========================================================================================================================================================================================</span><br><span class="line">Upgrade       1 Package(s)</span><br><span class="line"></span><br><span class="line">Total download size: 272 M</span><br><span class="line">       *.                  *.</span><br><span class="line">      ***                 ***</span><br><span class="line">     *****               *****</span><br><span class="line">    .******             *******</span><br><span class="line">    ********            ********</span><br><span class="line">   ,,,,,,,,,***********,,,,,,,,,</span><br><span class="line">  ,,,,,,,,,,,*********,,,,,,,,,,,</span><br><span class="line">  .,,,,,,,,,,,*******,,,,,,,,,,,,</span><br><span class="line">      ,,,,,,,,,*****,,,,,,,,,.</span><br><span class="line">         ,,,,,,,****,,,,,,</span><br><span class="line">            .,,,***,,,,</span><br><span class="line">                ,*,.</span><br><span class="line"></span><br><span class="line">     _______ __  __          __</span><br><span class="line">    / ____(_) /_/ /   ____ _/ /_</span><br><span class="line">   / / __/ / __/ /   / __ `/ __ \</span><br><span class="line">  / /_/ / / /_/ /___/ /_/ / /_/ /</span><br><span class="line">  \____/_/\__/_____/\__,_/_.___/</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">gitlab: Thank you for installing GitLab!</span><br><span class="line">gitlab: To configure and start GitLab, RUN THE FOLLOWING COMMAND:</span><br><span class="line"></span><br><span class="line">sudo gitlab-ctl reconfigure</span><br><span class="line"></span><br><span class="line">gitlab: GitLab should be reachable at http://gitlab.rjoy.com</span><br><span class="line">gitlab: Otherwise configure GitLab for your system by editing /etc/gitlab/gitlab.rb file</span><br><span class="line">gitlab: And running reconfigure again.</span><br><span class="line">gitlab: </span><br><span class="line">gitlab: For a comprehensive list of configuration options please see the Omnibus GitLab readme</span><br><span class="line">gitlab: https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/README.md</span><br><span class="line">gitlab: </span><br><span class="line">  Cleanup    : gitlab-ce-8.17.8-ce.0.el6.x86_64                                                                                                                                      2/2 </span><br><span class="line">Non-fatal POSTTRANS scriptlet failure in rpm package gitlab-ce-9.0.0-ce.0.el6.x86_64</span><br><span class="line">  Verifying  : gitlab-ce-9.0.0-ce.0.el6.x86_64                                                                                                                                       1/2 </span><br><span class="line">  Verifying  : gitlab-ce-8.17.8-ce.0.el6.x86_64                                                                                                                                      2/2 </span><br><span class="line"></span><br><span class="line">Updated:</span><br><span class="line">  gitlab-ce.x86_64 0:9.0.0-ce.0.el6                                                                                                                                                      </span><br><span class="line"></span><br><span class="line">Complete!</span><br><span class="line">[root@publish data]# gitlab-ctl restart</span><br><span class="line">ok: run: gitlab-workhorse: (pid 13625) 0s</span><br><span class="line">ok: run: logrotate: (pid 13634) 1s</span><br><span class="line">ok: run: nginx: (pid 13641) 0s</span><br><span class="line">ok: run: postgresql: (pid 13663) 1s</span><br><span class="line">ok: run: redis: (pid 13665) 0s</span><br><span class="line">ok: run: sidekiq: (pid 13676) 0s</span><br><span class="line">ok: run: unicorn: (pid 13681) 1s</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>这次升级看似成功了，但是一直502，通过自带的gitlab-ctl tail命令，看日志得出结果，8.x和9.x配置不一样，需要改动报错如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">==&gt; /var/log/gitlab/unicorn/unicorn_stderr.log &lt;==</span><br><span class="line">RuntimeError: default is not a valid storage, because it has no `path` key. It may be configured as:</span><br><span class="line"></span><br><span class="line">default:</span><br><span class="line">  path: /home/data/git-data/repositories</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>最后找了一个高版本的gitlab配置文件，更改了存储路径，还有备份路径</p>
+</li>
+</ul>
+<h5 id="9-0-9-5"><a href="#9-0-9-5" class="headerlink" title="9.0-9.5"></a>9.0-9.5</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line">[root@publish rayjoy]# yum install gitlab-ce-9.5.9-ce.0.el6 -y</span><br><span class="line">Loaded plugins: fastestmirror</span><br><span class="line">Loading mirror speeds from cached hostfile</span><br><span class="line"> * base: mirrors.huaweicloud.com</span><br><span class="line"> * extras: mirrors.aliyun.com</span><br><span class="line"> * rpmforge: mirrors.tuna.tsinghua.edu.cn</span><br><span class="line"> * updates: mirrors.aliyun.com</span><br><span class="line">Setting up Install Process</span><br><span class="line">Package matching gitlab-ce-9.5.9-ce.0.el6.x86_64 already installed. Checking for update.</span><br><span class="line">Resolving Dependencies</span><br><span class="line">--&gt; Running transaction check</span><br><span class="line">---&gt; Package gitlab-ce.x86_64 0:9.0.0-ce.0.el6 will be updated</span><br><span class="line">---&gt; Package gitlab-ce.x86_64 0:9.5.9-ce.0.el6 will be an update</span><br><span class="line">--&gt; Finished Dependency Resolution</span><br><span class="line"></span><br><span class="line">Dependencies Resolved</span><br><span class="line"></span><br><span class="line">=====================================================================================================================================================</span><br><span class="line"> Package                            Arch                            Version                                 Repository                          Size</span><br><span class="line">=====================================================================================================================================================</span><br><span class="line">Updating:</span><br><span class="line"> gitlab-ce                          x86_64                          9.5.9-ce.0.el6                          gitlab-ce                          377 M</span><br><span class="line"></span><br><span class="line">Transaction Summary</span><br><span class="line">=====================================================================================================================================================</span><br><span class="line">Upgrade       1 Package(s)</span><br><span class="line"></span><br><span class="line">Total download size: 377 M</span><br><span class="line">Downloading Packages:</span><br><span class="line">gitlab-ce-9.5.9-ce.0.el6.x86_64.rpm                                                                                           | 377 MB     05:15     </span><br><span class="line">Running rpm_check_debug</span><br><span class="line">Running Transaction Test</span><br><span class="line">Transaction Test Succeeded</span><br><span class="line">Running Transaction</span><br><span class="line">  Updating   : gitlab-ce-9.5.9-ce.0.el6.x86_64                                                                                                   1/2 </span><br><span class="line">gitlab preinstall: Automatically backing up only the GitLab SQL database (excluding everything else!)</span><br><span class="line">Dumping database ... </span><br><span class="line">Dumping PostgreSQL database gitlabhq_production ... [DONE]</span><br><span class="line">done</span><br><span class="line">Dumping repositories ...</span><br><span class="line">[SKIPPED]</span><br><span class="line">Dumping uploads ... </span><br><span class="line">[SKIPPED]</span><br><span class="line">Dumping builds ... </span><br><span class="line">[SKIPPED]</span><br><span class="line">Dumping artifacts ... </span><br><span class="line">[SKIPPED]</span><br><span class="line">Dumping pages ... </span><br><span class="line">[SKIPPED]</span><br><span class="line">Dumping lfs objects ... </span><br><span class="line">[SKIPPED]</span><br><span class="line">Dumping container registry images ... </span><br><span class="line">[DISABLED]</span><br><span class="line">Creating backup archive: 1573178264_2019_11_08_gitlab_backup.tar ... done</span><br><span class="line">Uploading backup archive to remote storage  ... skipped</span><br><span class="line">Deleting tmp directories ... done</span><br><span class="line">done</span><br><span class="line">Deleting old backups ... skipping</span><br><span class="line">hostname: No address associated with name</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">       *.                  *.</span><br><span class="line">      ***                 ***</span><br><span class="line">     *****               *****</span><br><span class="line">    .******             *******</span><br><span class="line">    ********            ********</span><br><span class="line">   ,,,,,,,,,***********,,,,,,,,,</span><br><span class="line">  ,,,,,,,,,,,*********,,,,,,,,,,,</span><br><span class="line">  .,,,,,,,,,,,*******,,,,,,,,,,,,</span><br><span class="line">      ,,,,,,,,,*****,,,,,,,,,.</span><br><span class="line">         ,,,,,,,****,,,,,,</span><br><span class="line">            .,,,***,,,,</span><br><span class="line">                ,*,.</span><br><span class="line"></span><br><span class="line">     _______ __  __          __</span><br><span class="line">    / ____(_) /_/ /   ____ _/ /_</span><br><span class="line">   / / __/ / __/ /   / __ `/ __ \</span><br><span class="line">  / /_/ / / /_/ /___/ /_/ / /_/ /</span><br><span class="line">  \____/_/\__/_____/\__,_/_.___/</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">gitlab: Thank you for installing GitLab!</span><br><span class="line">gitlab: To configure and start GitLab, RUN THE FOLLOWING COMMAND:</span><br><span class="line"></span><br><span class="line">sudo gitlab-ctl reconfigure</span><br><span class="line"></span><br><span class="line">gitlab: GitLab should be reachable at http://git.leishenhuyu.com</span><br><span class="line">gitlab: Otherwise configure GitLab for your system by editing /etc/gitlab/gitlab.rb file</span><br><span class="line">gitlab: And running reconfigure again.</span><br><span class="line">gitlab: </span><br><span class="line">gitlab: For a comprehensive list of configuration options please see the Omnibus GitLab readme</span><br><span class="line">gitlab: https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/README.md</span><br><span class="line">gitlab: </span><br><span class="line">  Cleanup    : gitlab-ce-9.0.0-ce.0.el6.x86_64</span><br></pre></td></tr></table></figure>
+<ul>
+<li>9.0 升级9.5 没什么太大的坑，遇到502不要慌，多等等一般重启完成后需要一定的时间，最后不行再看日志</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/30/Go语言数组/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1474,168 +1614,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/14/运维实用命令/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="gjw">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="gjwblog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/14/运维实用命令/" itemprop="url">运维实用命令</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-14T18:08:43+08:00">
-                2019-08-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>随机密码生成：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;`date &apos;+%D%N&apos;` $RANDOM $RANDOM `date &apos;+%D%N&apos;`&quot;  | md5sum | head -c 16 &amp;&amp; echo &apos;&apos;</span><br></pre></td></tr></table></figure></p>
-<p>查询DDOS攻击IP列表：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">linux: netstat -an|grep -i syn_recv|awk &apos;&#123;print $5&#125;&apos;|awk -F\: &apos;&#123;print $1&#125;&apos;|sort|uniq -c</span><br><span class="line">bsd:   netstat -an|grep -i syn_recv|awk &apos;&#123;print $5&#125;&apos;|awk -F\. &apos;&#123;print $1&quot;.&quot;$2&quot;.&quot;$3&quot;.&quot;$4&#125;&apos;|sort|uniq -c</span><br></pre></td></tr></table></figure></p>
-<p>取IP地址<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ifconfig  | grep &apos;inet addr:&apos;| grep -v &apos;127.0.0.1&apos; | cut -d: -f2 | awk &apos;&#123; print $1&#125;&apos;</span><br><span class="line">hostname -I</span><br></pre></td></tr></table></figure></p>
-<p>按cpu利用率从大到小排列<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -e  -o &quot;%C  : %p : %z : %a&quot;|sort  -nr</span><br></pre></td></tr></table></figure></p>
-<p>vim 批量替换<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%s/lvzheng/testlvzheng/g</span><br></pre></td></tr></table></figure></p>
-<p>列出cpu 占有率高于 8% 的进程的PID<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps aux | awk &apos;&#123; if ($3 &amp;gt; 8 ) print $2&#125;&apos;</span><br></pre></td></tr></table></figure></p>
-<p>监控java线程数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -eLf | grep java | wc -l</span><br></pre></td></tr></table></figure></p>
-<p>监控网络客户连接数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">netstat -n | grep tcp | grep 侦听端口 | wc -l</span><br><span class="line">上面两个命令，可改动grep的参数，来达到更细致的监控要求。</span><br></pre></td></tr></table></figure></p>
-<p>在Linux系统一切都是文件的思想贯彻指导下，所有进程的运行状态都可以用文件来获取。系统根目录/proc中，每一个数字子目录的名字都是运行中的进程的PID，进入任一个进程目录，可通过其中文件或目录来观察进程的各项运行指标，例如task目录就是用来描述进程中线程的，因此也可以通过下面的方法获取某进程中运行中的线程数量（PID指的是进程ID）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls /proc/PID/task | wc -l</span><br></pre></td></tr></table></figure></p>
-<p>在linux中还有一个命令pmap，来输出进程内存的状况，可以用来分析线程堆栈：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pmap PID</span><br></pre></td></tr></table></figure></p>
-<p>TCP状态<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">netstat -n | awk &apos;/^tcp/ &#123;++S[$NF]&#125; END &#123;for(a in S) print a, S[a]&#125;&apos;</span><br><span class="line">netstat -n | awk &apos;/^tcp/ &#123;++state[$NF]&#125; END &#123;for(key in state) print key,&quot;\t&quot;,state[key]&#125;&apos;</span><br><span class="line">sysctl -a|grep net.ipv4.tcp_tw</span><br><span class="line">sysctl -a | grep time | grep wait</span><br><span class="line">net.ipv4.netfilter.ip_conntrack_tcp_timeout_time_wait = 120</span><br><span class="line">net.ipv4.netfilter.ip_conntrack_tcp_timeout_close_wait = 60</span><br><span class="line">net.ipv4.netfilter.ip_conntrack_tcp_timeout_fin_wait = 120</span><br></pre></td></tr></table></figure></p>
-<p>清除僵死进程<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -eal | awk &apos;&#123; if ($2 == &quot;Z&quot;) &#123;print $4&#125;&#125;&apos; | kill -9</span><br></pre></td></tr></table></figure></p>
-<p>查杀mysql进程<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps aux|grep mysql|grep -v grep|awk &apos;&#123;print $2&#125;&apos;|xargs kill -9</span><br></pre></td></tr></table></figure></p>
-<p>查杀进程PID<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill -9 `cat /var/jboss.pid`</span><br></pre></td></tr></table></figure></p>
-<p>查杀8080端口相关的进程<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsof -i :8080|grep -v &quot;PID&quot;|awk &apos;&#123;print &quot;kill -9&quot;,$2&#125;&apos;|sh</span><br></pre></td></tr></table></figure></p>
-<p>tcpdump 抓包<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tcpdump -c 10000 -i eth0 -n dst port 80 &gt; /root/tcpdump.log</span><br></pre></td></tr></table></figure></p>
-<p>让linux的history命令显示时间记录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/bashrc</span><br><span class="line">添加：</span><br><span class="line">#by:fyc</span><br><span class="line">HISTFILESIZE=2000 #定义了在 .bash_history 中保存命令的记录总数</span><br><span class="line">HISTSIZE=2000 #定义了 history 命令输出的记录数</span><br><span class="line">#HISTIMEFORMAT=&quot;%Y%m%d-%H%M%S: &quot; #定义了执行命令的时间格式</span><br><span class="line">HISTTIMEFORMAT=&apos;%F %T &apos; ##这个方法显示更清晰。</span><br><span class="line">#!/bin/sh</span><br><span class="line"></span><br><span class="line">ID=`ps -ef | grep &quot;java&quot; | grep -v &quot;$0&quot; |grep jboss-4.2.2.GA_***| grep -v &quot;grep&quot; | awk &apos;&#123;print $2&#125;&apos;`</span><br><span class="line">for pid in $ID;</span><br><span class="line">do</span><br><span class="line">   echo 时间：`date +%Y-%m-%d_%H:%M:%S`</span><br><span class="line">   echo &quot;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!&quot; </span><br><span class="line">   echo &quot;[jboss-4.2.2.GA_***]&apos;s process: $pid&quot;;</span><br><span class="line">   echo &quot;-------------------------------------------------------------------------------------------------------------------&quot; </span><br><span class="line">   pstree -p $&#123;pid&#125;</span><br><span class="line">   echo &quot;-------------------------------------------------------------------------------------------------------------------&quot;</span><br><span class="line">   cat /proc/$&#123;pid&#125;/status</span><br><span class="line">   echo &quot;-------------------------------------------------------------------------------------------------------------------&quot;</span><br></pre></td></tr></table></figure></p>
-<p>进程打开的文件句柄</p>
-<pre><code>   lsof -n | grep $pid |wc -l
-   echo &quot;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!&quot;
-done
-</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1686,7 +1664,7 @@ done
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">58</span>
+                  <span class="site-state-item-count">59</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
