@@ -250,6 +250,531 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/28/python异常处理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="gjw">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="gjwblog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/28/python异常处理/" itemprop="url">Python异常处理</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-28T10:24:22+08:00">
+                2019-05-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li><p>语法:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">try:</span><br><span class="line">    except TypeError: #相当于if判断</span><br><span class="line">    except 错误类型: #多个except elif</span><br><span class="line">    except Exception as e: #如果所有的except都没捕获到，就走Exception</span><br><span class="line">    else: #没有异常，走else语句</span><br><span class="line">    finally: #总会被执行，不管有没有异常</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>try 基本使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">In [4]: 1 + &quot;2&quot;                                                                 </span><br><span class="line">---------------------------------------------------------------------------</span><br><span class="line">TypeError                                 Traceback (most recent call last)</span><br><span class="line">&lt;ipython-input-4-db092cb74d2d&gt; in &lt;module&gt;</span><br><span class="line">----&gt; 1 1 + &quot;2&quot;</span><br><span class="line"></span><br><span class="line">TypeError: unsupported operand type(s) for +: &apos;int&apos; and &apos;str&apos;</span><br><span class="line"># 这时程序报错会退出如果用 try处理，只会抛出异常,下面的程序会接着执行</span><br><span class="line">In [5]: try: </span><br><span class="line">   ...:     1 + &quot;2&quot; </span><br><span class="line">   ...: except TypeError: </span><br><span class="line">   ...:     print(&apos;str to int error.&apos;) </span><br><span class="line">   ...: except Exception as e: </span><br><span class="line">   ...:     print(e) </span><br><span class="line">   ...: print(&apos;test&apos;) </span><br><span class="line">   ...:  </span><br><span class="line">   ...:                                                                         </span><br><span class="line">str to int error.</span><br><span class="line">test</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Exception使用,会将没有定义的异常，抛出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">In [6]: try: </span><br><span class="line">   ...:     1 + abc </span><br><span class="line">   ...: except TypeError: </span><br><span class="line">   ...:     print(&apos;str to int error.&apos;) </span><br><span class="line">   ...: except Exception as e: </span><br><span class="line">   ...:     print(e) </span><br><span class="line">   ...:                                                                         </span><br><span class="line">name &apos;abc&apos; is not defined</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/21/python列表常用方法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="gjw">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="gjwblog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/21/python列表常用方法/" itemprop="url">Python列表常用方法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-21T11:31:48+08:00">
+                2019-05-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li><p>查看列表有哪些方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; dir(list)</span><br><span class="line">[&apos;__add__&apos;, &apos;__class__&apos;, &apos;__contains__&apos;, &apos;__delattr__&apos;, &apos;__delitem__&apos;, &apos;__dir__&apos;, &apos;__doc__&apos;, &apos;__eq__&apos;, &apos;__format__&apos;, &apos;__ge__&apos;, &apos;__getattribute__&apos;, &apos;__getitem__&apos;, &apos;__gt__&apos;, &apos;__hash__&apos;, &apos;__iadd__&apos;, &apos;__imul__&apos;, &apos;__init__&apos;, &apos;__init_subclass__&apos;, &apos;__iter__&apos;, &apos;__le__&apos;, &apos;__len__&apos;, &apos;__lt__&apos;, &apos;__mul__&apos;, &apos;__ne__&apos;, &apos;__new__&apos;, &apos;__reduce__&apos;, &apos;__reduce_ex__&apos;, &apos;__repr__&apos;, &apos;__reversed__&apos;, &apos;__rmul__&apos;, &apos;__setattr__&apos;, &apos;__setitem__&apos;, &apos;__sizeof__&apos;, &apos;__str__&apos;, &apos;__subclasshook__&apos;, &apos;append&apos;, &apos;clear&apos;, &apos;copy&apos;, &apos;count&apos;, &apos;extend&apos;, &apos;index&apos;, &apos;insert&apos;, &apos;pop&apos;, &apos;remove&apos;, &apos;reverse&apos;, &apos;sort&apos;]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>append列表中追加内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; lst = [1,2,3,4]</span><br><span class="line">&gt;&gt;&gt; lst.append(5)</span><br><span class="line">&gt;&gt;&gt; lst</span><br><span class="line">[1, 2, 3, 4, 5]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>count统计列表中元素出现的次数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; lst.append(1)</span><br><span class="line">&gt;&gt;&gt; lst.count(1)</span><br><span class="line">2</span><br><span class="line">&gt;&gt;&gt; lst.count(2)</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>extend追加内容，但是不会出现列表嵌套结构，append会嵌套</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; lst1 = [1,2,3]</span><br><span class="line">&gt;&gt;&gt; lst.append(lst1)</span><br><span class="line">&gt;&gt;&gt; lst</span><br><span class="line">[1, 2, 3, 4, 5, 1, [1, 2, 3]]</span><br><span class="line">&gt;&gt;&gt; lst.extend(lst1)</span><br><span class="line">&gt;&gt;&gt; lst</span><br><span class="line">[1, 2, 3, 4, 5, 1, [1, 2, 3], 1, 2, 3]</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>index 返回索引位置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; lst.index(1)</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>insert 插入内容，指定索引位置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; lst.insert(0,&apos;a&apos;)</span><br><span class="line">&gt;&gt;&gt; lst</span><br><span class="line">[&apos;a&apos;, 1, 2, 3, 4, 5, 1, [1, 2, 3], 1, 2, 3]</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>pop 删除列表内容，按照索引位置，返回删除信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; lst.pop(0)</span><br><span class="line">&apos;a&apos;</span><br><span class="line">&gt;&gt;&gt; lst</span><br><span class="line">[1, 2, 3, 4, 5, 1, [1, 2, 3], 1, 2, 3]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>remove 移除列表内容，不反回移除信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; lst.remove(1)</span><br><span class="line">&gt;&gt;&gt; lst</span><br><span class="line">[2, 3, 4, 5, 1, [1, 2, 3], 1, 2, 3]</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>reverse 反转列表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; lst = [1,2,3,4,5,6]</span><br><span class="line">&gt;&gt;&gt; lst.reverse()</span><br><span class="line">&gt;&gt;&gt; lst</span><br><span class="line">[6, 5, 4, 3, 2, 1]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>sort 排序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; lst.sort()</span><br><span class="line">&gt;&gt;&gt; lst</span><br><span class="line">[1, 2, 3, 4, 5, 6]</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/21/python字符串常用方法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="gjw">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="gjwblog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/21/python字符串常用方法/" itemprop="url">Python字符常用方法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-21T10:34:34+08:00">
+                2019-05-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="字符串方法"><a href="#字符串方法" class="headerlink" title="字符串方法"></a>字符串方法</h2><ul>
+<li><p>查看字符串有哪些方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; mystr</span><br><span class="line">&apos;1,2,3,2,a,b,c,a&apos;</span><br><span class="line">&gt;&gt;&gt; dir(mystr)</span><br><span class="line">[&apos;__add__&apos;, &apos;__class__&apos;, &apos;__contains__&apos;, &apos;__delattr__&apos;, &apos;__dir__&apos;, &apos;__doc__&apos;, &apos;__eq__&apos;, &apos;__format__&apos;, &apos;__ge__&apos;, &apos;__getattribute__&apos;, &apos;__getitem__&apos;, &apos;__getnewargs__&apos;, &apos;__gt__&apos;, &apos;__hash__&apos;, &apos;__init__&apos;, &apos;__init_subclass__&apos;, &apos;__iter__&apos;, &apos;__le__&apos;, &apos;__len__&apos;, &apos;__lt__&apos;, &apos;__mod__&apos;, &apos;__mul__&apos;, &apos;__ne__&apos;, &apos;__new__&apos;, &apos;__reduce__&apos;, &apos;__reduce_ex__&apos;, &apos;__repr__&apos;, &apos;__rmod__&apos;, &apos;__rmul__&apos;, &apos;__setattr__&apos;, &apos;__sizeof__&apos;, &apos;__str__&apos;, &apos;__subclasshook__&apos;, &apos;capitalize&apos;, &apos;casefold&apos;, &apos;center&apos;, &apos;count&apos;, &apos;encode&apos;, &apos;endswith&apos;, &apos;expandtabs&apos;, &apos;find&apos;, &apos;format&apos;, &apos;format_map&apos;, &apos;index&apos;, &apos;isalnum&apos;, &apos;isalpha&apos;, &apos;isdecimal&apos;, &apos;isdigit&apos;, &apos;isidentifier&apos;, &apos;islower&apos;, &apos;isnumeric&apos;, &apos;isprintable&apos;, &apos;isspace&apos;, &apos;istitle&apos;, &apos;isupper&apos;, &apos;join&apos;, &apos;ljust&apos;, &apos;lower&apos;, &apos;lstrip&apos;, &apos;maketrans&apos;, &apos;partition&apos;, &apos;replace&apos;, &apos;rfind&apos;, &apos;rindex&apos;, &apos;rjust&apos;, &apos;rpartition&apos;, &apos;rsplit&apos;, &apos;rstrip&apos;, &apos;split&apos;, &apos;splitlines&apos;, &apos;startswith&apos;, &apos;strip&apos;, &apos;swapcase&apos;, &apos;title&apos;, &apos;translate&apos;, &apos;upper&apos;, &apos;zfill&apos;]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>count 统计字符串中出现的个数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; mystr.count(&apos;1&apos;)</span><br><span class="line">1</span><br><span class="line">&gt;&gt;&gt; mystr.count(&apos;a&apos;)</span><br><span class="line">2</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>startswith 查看字符串是不是以什么开头,返回布尔值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; mystr.startswith(&apos;a&apos;)</span><br><span class="line">False</span><br><span class="line">&gt;&gt;&gt; mystr.startswith(&apos;1&apos;)</span><br><span class="line">True</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>endswith 查看字符串是不是以什么结尾，返回布尔值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; mystr.endswith(&apos;a&apos;)</span><br><span class="line">True</span><br><span class="line">&gt;&gt;&gt; mystr.endswith(&apos;1&apos;)</span><br><span class="line">False</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>find 检查字符串中是否有字符，指定开始与结尾，不存在返回-1</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; mystr.find(&apos;a&apos;,0,2)</span><br><span class="line">-1</span><br><span class="line">&gt;&gt;&gt; mystr</span><br><span class="line">&apos;1,2,3,2,a,b,c,a&apos;</span><br><span class="line">&gt;&gt;&gt; mystr.find(&apos;a&apos;,1)</span><br><span class="line">8</span><br><span class="line">&gt;&gt;&gt; mystr.find(&apos;1&apos;,0,2)</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>format 格式化输出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; &apos;hello my name is &#123;&#125;&apos;.format(&apos;gjw&apos;)</span><br><span class="line">&apos;hello my name is gjw&apos;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>index 查找字符串索引位置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; mystr.index(&apos;1&apos;)</span><br><span class="line">0</span><br><span class="line">&gt;&gt;&gt; mystr.index(&apos;a&apos;)</span><br><span class="line">8</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>isdigit 是不是数字组成，返回布尔值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; mystr.isdigit()</span><br><span class="line">False</span><br><span class="line">&gt;&gt;&gt; mystr1 = &apos;123&apos;</span><br><span class="line">&gt;&gt;&gt; mystr1.isdigit()</span><br><span class="line">True</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>islower 是不是小写，返回布尔值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; mystr.islower()</span><br><span class="line">True</span><br><span class="line">&gt;&gt;&gt; mystr1 = &apos;ABC&apos;</span><br><span class="line">&gt;&gt;&gt; mystr1.islower()</span><br><span class="line">False</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>isupper 是不是大写，返回布尔值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; mystr1.isupper()</span><br><span class="line">True</span><br><span class="line">&gt;&gt;&gt; mystr.isupper()</span><br><span class="line">False</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>join 连接字符串</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; str = &apos;-&apos;</span><br><span class="line">&gt;&gt;&gt; seq = (&apos;a&apos;, &apos;b&apos;, &apos;c&apos;)</span><br><span class="line">&gt;&gt;&gt; str.join( seq )</span><br><span class="line">&apos;a-b-c&apos;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>ljust 字符串左对齐,默认使用空格填充至指定长度的新字符串</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; str = &apos;hi&apos;</span><br><span class="line">&gt;&gt;&gt; str.ljust(10,&apos;!&apos;)</span><br><span class="line">&apos;hi!!!!!!!!&apos;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>lower 将字符串转换为小写</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; mystr = &apos;ABC&apos;</span><br><span class="line">&gt;&gt;&gt; </span><br><span class="line">&gt;&gt;&gt; mystr.lower()</span><br><span class="line">&apos;abc&apos;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>lstrip 去掉字符串左边空格，或指定字符</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; mystr = &apos;abcdef&apos;</span><br><span class="line">&gt;&gt;&gt; mystr.lstrip(&apos;a&apos;)</span><br><span class="line">&apos;bcdef&apos;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>replace 替换字符串</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; mystr.replace(&apos;f&apos;,&apos;a&apos;)</span><br><span class="line">&apos;abcdea&apos;</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>rjust 字符串右对齐,默认使用空格填充至指定长度的新字符串</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; mystr = &apos;hi&apos;</span><br><span class="line">&gt;&gt;&gt; mystr.rjust(10,&apos;!&apos;)</span><br><span class="line">&apos;!!!!!!!!hi&apos;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>split 字符串切分返回列表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; mystr.split(&apos;c&apos;)</span><br><span class="line">[&apos;ab&apos;, &apos;ab&apos;, &apos;&apos;]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>strip 去除指定字符</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; mystr.strip(&apos;a&apos;)</span><br><span class="line">&apos;bcabc&apos;</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>upper 将字符串变为大写</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; mystr.upper()</span><br><span class="line">&apos;ABCABC&apos;</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/17/kubernetes-e7-ae-80-e4-bb-8b/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1288,498 +1813,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/15/python-e7-bb-9f-e8-ae-a1ip-e5-9c-b0-e5-9d-80-e5-bd-92-e5-b1-9e-e5-9c-b0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="gjw">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="gjwblog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/15/python-e7-bb-9f-e8-ae-a1ip-e5-9c-b0-e5-9d-80-e5-bd-92-e5-b1-9e-e5-9c-b0/" itemprop="url">python 统计ip地址归属地</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-15T18:24:00+08:00">
-                2019-03-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>接到一个运营需求，统计地区玩家分布数量，使用17MonIPpython库完成了这个统计代码如下: 需要pip安装库</p>
-<p>import os</p>
-<p>from concurrent.futures import ThreadPoolExecutor</p>
-<p>from collections import Counter</p>
-<p>import IP</p>
-<p>ip_list = Counter()</p>
-<p>lst = []</p>
-<p>addr_lst = []</p>
-<p>t_list = []</p>
-<p>with open(r’ip.txt’) as f:</p>
-<p> for line in f:</p>
-<p> lst.append(line.strip(‘\n’).strip(‘\t’))</p>
-<p>def func(i):</p>
-<p> addr = IP.find(i)</p>
-<p> addr_lst.append(addr)</p>
-<p>t_pool = ThreadPoolExecutor(os.cpu_count() * 5)</p>
-<p>for i in lst:</p>
-<p> t_pool.submit(func, i)</p>
-<p>t_pool.shutdown()</p>
-<p>ip_list.update(addr_lst)</p>
-<p>print(ip_list)</p>
-<p>最后数据处理完成（ip是从数据库中查询保存的）： <img src="http://www.gjwlinux.cn/wp-content/uploads/2019/03/WechatIMG860.jpeg" alt> 如果看着\t不爽的话，先把字符串切割成列表，再join成字符串。 相关库github 地址:<a href="https://github.com/17mon/python" target="_blank" rel="noopener">https://github.com/17mon/python</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/05/github-e7-a7-81-e5-ba-93release-e6-96-87-e4-bb-b6-e4-b8-8b-e8-bd-bd/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="gjw">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="gjwblog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/05/github-e7-a7-81-e5-ba-93release-e6-96-87-e4-bb-b6-e4-b8-8b-e8-bd-bd/" itemprop="url">github私库release文件下载</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-05T19:06:05+08:00">
-                2019-03-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux基础/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux基础</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux基础/爬坑之路/" itemprop="url" rel="index">
-                    <span itemprop="name">爬坑之路</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>1.token获取 <img src="http://www.gjwlinux.cn/wp-content/uploads/2019/03/to.jpg" alt> <img src="http://www.gjwlinux.cn/wp-content/uploads/2019/03/to1.jpg" alt> 选择完成后点最下方创建，会给出一个token，只显示一次，需要保存好 2.文件下载 附送脚本:</p>
-<p>echo “GITHUB_API_TOKEN=youtoken” &gt;&gt;~/.secrets</p>
-<p>#!/bin/bash<br>CWD=”$(cd -P – “$(dirname – “$0”)” &amp;&amp; pwd -P)”</p>
-<p># Check dependencies.<br>set -e<br>type curl grep sed tr &gt;&amp;2<br>xargs=$(which gxargs || which xargs)</p>
-<p># Validate settings.<br>[ -f ~/.secrets ] &amp;&amp; source ~/.secrets<br>[ “$GITHUB_API_TOKEN” ] || { echo “Error: Please define GITHUB_API_TOKEN variable.” &gt;&2; exit 1; }<br>[ $# -ne 4 ] &amp;&amp; { echo “Usage: $0 [owner] [repo] [tag] [name]“; exit 1; }<br>[ “$TRACE” ] &amp;&amp; set -x<br>read owner repo tag name &lt;&lt;&lt;$@</p>
-<p># Define variables.<br>GH_API=”<a href="https://api.github.com&quot;" target="_blank" rel="noopener">https://api.github.com&quot;</a><br>GH_REPO=”$GH_API/repos/$owner/$repo”<br>GH_TAGS=”$GH_REPO/releases/tags/$tag”<br>AUTH=”Authorization: token $GITHUB_API_TOKEN”<br>WGET_ARGS=”–content-disposition –auth-no-challenge –no-cookie”<br>CURL_ARGS=”-LJO#”</p>
-<p># Validate token.<br>curl -o /dev/null -sH “$AUTH” $GH_REPO || { echo “Error: Invalid repo, token or network issue!”; exit 1; }</p>
-<p># Read asset tags.<br>response=$(curl -sH “$AUTH” $GH_TAGS)<br># Get ID of the asset based on given name.<br>eval $(echo “$response” | grep -C3 “name.:.\+$name” | grep -w id | tr : = | tr -cd ‘[[:alnum:]]=’)<br>[ “$id” ] || { echo “Error: Failed to get asset id, response: $response” | awk ‘length($0)&lt;100’ &gt;&2; exit 1; }<br>GH_ASSET=”$GH_REPO/releases/assets/$id”</p>
-<p># Download asset file.<br>echo “Downloading asset…” &gt;&amp;2<br>curl $CURL_ARGS -H ‘Accept: application/octet-stream’ “$GH_ASSET?access_token=$GITHUB_API_TOKEN”<br>echo “$0 done.” &gt;&amp;2</p>
-<p>#3使用方法<br>sh get.sh username test v0.1 ***.py<br>（用户 存储库 tag 文件名）</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/04/e7-9b-91-e6-8e-a7-e6-a6-82-e8-bf-b0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="gjw">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="gjwblog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/04/e7-9b-91-e6-8e-a7-e6-a6-82-e8-bf-b0/" itemprop="url">监控设计概述</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-04T16:36:23+08:00">
-                2019-03-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/监控/" itemprop="url" rel="index">
-                    <span itemprop="name">监控</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><img src="http://www.gjwlinux.cn/wp-content/uploads/2019/03/432068DA553308AB3FBB1444B76D3345.jpg" alt>    监控是什么？ 说⽩了 就是⽤⼀种形式 去盯着 观察服务器 把服 务器的各种⾏为表现都显示出来 ⽤以发现问题 和不⾜。报警是什么？ 监控和报警这两个词⼀定要分开说，分开理解！ 监控是监控 报警是报警。 监控是把⾏为表现展示出来，⽤来观察的，报警则是，当监控获取的数据，发⽣异常并且到达了某个临界点的时候，采⽤各种途径来通知运维⼈员。</p>
-<p>1 监控架构设计</p>
-<p>评估 业务流程，框架，体系</p>
-<p>业务／系统／网络／代码／日志／用户行为／等监控</p>
-<p>业务: qps dau 访问状态 用户接口 </p>
-<p>系统: cpu 内存 磁盘 等</p>
-<p>网络: 延迟 丢包 进出口流量</p>
-<p>代码: 开发配合</p>
-<p>日志: elk （系统，业务)</p>
-<p>2.监控系统搭建</p>
-<p>服务端</p>
-<p>客户端</p>
-<p>采集程序单点测试    </p>
-<p>采集程序批量部署</p>
-<p>服务端 ha </p>
-<p>图形化搭建</p>
-<p>报警系统测试</p>
-<p>报警规则测试</p>
-<p>监控 &amp; 报警联合测试</p>
-<p>上线</p>
-<p>3 稳定性测试</p>
-<p>一段时间后:</p>
-<p>单点服务部署后，对服务器，业务是否有影响</p>
-<p>集群服务部署后，对服务器，业务是否有影响</p>
-<p>4 自动化监控</p>
-<p>批量部署  salt ansible</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1830,7 +1863,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">61</span>
+                  <span class="site-state-item-count">64</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1899,7 +1932,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
