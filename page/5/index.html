@@ -250,6 +250,153 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/30/Python函数/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="gjw">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="gjwblog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/30/Python函数/" itemprop="url">Python函数</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-30T18:02:28+08:00">
+                2019-05-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>以def 关键字开头，后接函数名字和圆括号() 以冒号:结尾<br>参数必须放在圆括号内，多个参数逗号分隔<br>return 结束函数，默认返回None<br>retrun 可以返回多个值，返回数据类型为元祖，可以用解包的方式多个变量接收多个返回参数</p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>定义一个函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">In [1]: def hello(): </span><br><span class="line">   ...:     print(&apos;hello&apos;) </span><br><span class="line">   ...:                                                                         </span><br><span class="line"></span><br><span class="line">In [2]: hello()                                                                 </span><br><span class="line">hello</span><br><span class="line"></span><br><span class="line">In [3]: info = hello()                                                          </span><br><span class="line">hello</span><br><span class="line"></span><br><span class="line">In [4]: print(info)                                                             </span><br><span class="line">None</span><br><span class="line"></span><br><span class="line">In [5]: def hello(): </span><br><span class="line">   ...:     return &apos;nihao&apos; </span><br><span class="line">   ...:                                                                         </span><br><span class="line"></span><br><span class="line">In [6]: hello()                                                                 </span><br><span class="line">Out[6]: &apos;nihao&apos;</span><br><span class="line"></span><br><span class="line">In [7]: info = hello()                                                          </span><br><span class="line"></span><br><span class="line">In [8]: print(info)                                                             </span><br><span class="line">nihao</span><br><span class="line"></span><br><span class="line">In [9]: def hello(): </span><br><span class="line">   ...:     return &apos;nihao&apos;,True </span><br><span class="line">   ...:      </span><br><span class="line">   ...:                                                                         </span><br><span class="line"></span><br><span class="line">In [10]: info = hello()                                                         </span><br><span class="line"></span><br><span class="line">In [11]: print(info)                                                            </span><br><span class="line">(&apos;nihao&apos;, True)</span><br><span class="line"></span><br><span class="line">In [12]: i,j = hello()                                                          </span><br><span class="line"></span><br><span class="line">In [13]: print(i,j)                                                             </span><br><span class="line">nihao True</span><br></pre></td></tr></table></figure></p>
+<p>关键字函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">In [1]: def count(x,y): </span><br><span class="line">   ...:     return x+y </span><br><span class="line">   ...:                                                                         </span><br><span class="line"></span><br><span class="line">In [2]: c = count(y=2,x=1)                                                      </span><br><span class="line"></span><br><span class="line">In [3]: c                                                                       </span><br><span class="line">Out[3]: 3</span><br></pre></td></tr></table></figure></p>
+<p>默认值函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">In [4]: def count(x,y=10): </span><br><span class="line">   ...:     return x+y </span><br><span class="line">   ...:                                                                         </span><br><span class="line"></span><br><span class="line">In [5]: c = count(1)                                                            </span><br><span class="line"></span><br><span class="line">In [6]: c                                                                       </span><br><span class="line">Out[6]: 11</span><br></pre></td></tr></table></figure></p>
+<p>可变位置函数，返回元祖<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">In [9]: def count(x,y,*z): </span><br><span class="line">   ...:     return x,y,z                                              </span><br><span class="line"></span><br><span class="line">In [10]: c = count(1,2,3,4,5,6,7,8)                                             </span><br><span class="line"></span><br><span class="line">In [11]: c                                                                      </span><br><span class="line">Out[11]: (1, 2, (3, 4, 5, 6, 7, 8))</span><br></pre></td></tr></table></figure></p>
+<p>可变关键字参数，返回字典<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">In [12]: def count(x,y,*z,**kw): </span><br><span class="line">    ...:     return x,y,z,kw </span><br><span class="line">                                                                    </span><br><span class="line">In [13]: c = count(1,2,3,4,name=&apos;gjw&apos;)                                          </span><br><span class="line"></span><br><span class="line">In [14]: c                                                                      </span><br><span class="line">Out[14]: (1, 2, (3, 4), &#123;&apos;name&apos;: &apos;gjw&apos;&#125;)</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/30/python常用模块/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1655,171 +1802,6 @@ Out[7]: datetime.datetime(2019, 6, 16, 14, 29, 31, 698443)
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/04/python-e9-85-8d-e7-bd-ae-e6-96-87-e4-bb-b6-e7-94-9f-e6-88-90/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="gjw">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="gjwblog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/04/python-e9-85-8d-e7-bd-ae-e6-96-87-e4-bb-b6-e7-94-9f-e6-88-90/" itemprop="url">python生成配置文件</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-04T17:25:30+08:00">
-                2019-04-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>运维工作中，有很多时候需要改配置文件，或者写配置文件，这篇文章主要记录通过python str模版方法生成配置文件，适用不复杂情况，如果配置文件复杂就需要用jinjia2，小胡子等方法生成 str模版示例: tpl模版</p>
-<mysql>
-
-<pre><code>&lt;host&gt;{host}&lt;/host&gt;
-
-&lt;user&gt;{user}&lt;/user&gt;
-</code></pre><mysql>
-
-<p>python代码</p>
-<p>tpl_file = ‘mysql.tpl’</p>
-<p>conf_file = ‘mysql_conf’</p>
-<p>tpl = open(tpl_file).read()</p>
-<p>open(conf_file,’wt’).write(tpl.format(host=’127.0.0.1’,user=’test’))</p>
-<p>结果</p>
-<p>gjwdeMacBook-Pro:py gjw$ cat mysql_conf</p>
-<mysql>
-
-<host>127.0.0.1</host>
-
-<user>test</user>
-
-<mysql>
-
-<p>如果要生成配置文件带有{} 需要将配置文件中{ {}}取消歧义，注意，不是传递的值{ {mysql}}取消</p>
-</mysql></mysql></mysql></mysql>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1870,7 +1852,7 @@ Out[7]: datetime.datetime(2019, 6, 16, 14, 29, 31, 698443)
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">66</span>
+                  <span class="site-state-item-count">67</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
