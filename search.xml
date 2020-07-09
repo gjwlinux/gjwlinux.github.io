@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[ladp自助修改密码填坑]]></title>
+    <url>%2F2020%2F07%2F09%2Fladp%E8%87%AA%E5%8A%A9%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81%E5%A1%AB%E5%9D%91%2F</url>
+    <content type="text"><![CDATA[问题1，修改密码提示失败通过log得出，错误日志不允许访问，怀疑权限问题，增加acl，允许普通用户操作存储1234567891011121314@node1 ~]# cat updatepass.ldifdn: olcDatabase=&#123;2&#125;hdb,cn=configchangetype: modifyadd: olcAccessolcAccess: to attrs=userPassword by self =xw by anonymous auth by * none olcAccess: to * by self write by users read by * none@node1 ~]# ldapmodify -Y EXTERNAL -H ldapi:/// -f updatepass.ldif 问题2，邮箱验证失败 这个问题是通过邮件发送时验证失败的，需要添加用户的时候指定mail字段。 要注意前后空格问题，第一次添加完用户后，使用ldapsearch 查出来的与，mail字段的不一致，在重新测试添加新用户的时候发现最后多了空格 配置文件需要邮箱开启对应协议，而且是协议后所给的密码，而不是自身邮箱登录密码1234567891011@node1 ~]# cat user.ldif dn: uid=user01,ou=People,dc=admin,dc=comcn: user01sn: user01objectClass: inetOrgPersonobjectClass: topobjectClass: personobjectClass: shadowAccountmail: xxx@xxx.comuserPassword:: e01ENX00UXJjT1VtNldhdStWdUJYOGcrSVBnPT0=uid: user01]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[DOM]]></title>
+    <url>%2F2020%2F07%2F02%2FDOM%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[BOM]]></title>
+    <url>%2F2020%2F07%2F02%2FBOM%2F</url>
+    <content type="text"><![CDATA[window 对象 alert、confirm、prompt 1234567891011121314151617&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt; &lt;meta charset=&quot;utf-8&quot;&gt; &lt;title&gt;-&lt;/title&gt;&lt;/head&gt;&lt;body&gt; &lt;script type=&quot;text/javascript&quot;&gt; //网页弹出 window.alert(&apos;hello&apos;); //弹出框 可以选择是否返回值为 true flase var a = window.confirm(&apos;是否跳转&apos;); //弹出框，需要填写内容，返回值为填写内容，第二个参数为给的默认值 var b = window.prompt(&apos;是否跳转&apos;,&apos;是&apos;) &lt;/script&gt;&lt;/body&gt;&lt;/html&gt; 定时器方法 1234567891011121314151617&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt; &lt;meta charset=&quot;utf-8&quot;&gt; &lt;title&gt;-&lt;/title&gt;&lt;/head&gt;&lt;body&gt; &lt;script type=&quot;text/javascript&quot;&gt; window.setTimeout(function () &#123; console.log(&apos;hello&apos;); &#125;,1000)//毫秒，1秒后打印log hello。延迟执行 window.setInterval(function () &#123; console.log(&apos;hell&apos;); &#125;,1000)//每秒执行一次 &lt;/script&gt;&lt;/body&gt;&lt;/html&gt; 清除定时器 123456789101112131415161718192021&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt; &lt;meta charset=&quot;utf-8&quot;&gt; &lt;title&gt;-&lt;/title&gt;&lt;/head&gt;&lt;body&gt; &lt;script type=&quot;text/javascript&quot;&gt; var num = 0; var timer = null; window.setInterval(function () &#123; num ++ if (num &lt; 3) &#123; clearInterval(null) return; &#125; console.log(&apos;hell&apos;); &#125;,1000)//每秒执行一次 &lt;/script&gt;&lt;/body&gt;&lt;/html&gt; location对象 location.hostname 获取服务器端地址 location.href 获取完整url location.pathname 获取文件路径 location.prot 获取端口号 location.protocol 获取协议 location.search 获取查询内容]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[js基础]]></title>
+    <url>%2F2020%2F07%2F02%2Fjs%E5%9F%BA%E7%A1%80%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
     <title><![CDATA[Linux文件系统只读]]></title>
     <url>%2F2020%2F06%2F03%2FLinux%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%8F%AA%E8%AF%BB%2F</url>
     <content type="text"><![CDATA[12345678910111213141516171819202122232425262728293031323334353637[root@localhost]/data1# touch 1.txttouch: 无法创建&quot;1.txt&quot;: 只读文件系统[root@localhost]~# mount/dev/mapper/VolGroup-lv_root on / type ext4 (rw)proc on /proc type proc (rw)sysfs on /sys type sysfs (rw)devpts on /dev/pts type devpts (rw,gid=5,mode=620)tmpfs on /dev/shm type tmpfs (rw,rootcontext=&quot;system_u:object_r:tmpfs_t:s0&quot;)/dev/sda1 on /boot type ext4 (rw)none on /proc/sys/fs/binfmt_misc type binfmt_misc (rw)mount: warning: /etc/mtab is not writable (e.g. read-only filesystem). It&apos;s possible that information reported by mount(8) is not up to date. For actual information about system mount points check the /proc/mounts file.[root@localhost]/data1# cat /proc/mounts |grep --col rorootfs / rootfs rw 0 0proc /proc proc rw,relatime 0 0/dev/mapper/VolGroup-lv_root / ext4 ro,seclabel,relatime,barrier=1,data=ordered 0 0/proc/bus/usb /proc/bus/usb usbfs rw,relatime 0 0none /proc/sys/fs/binfmt_misc binfmt_misc rw,relatime 0 0[root@localhost]/data1# fsck fsck from util-linux-ng 2.17.2e2fsck 1.41.12 (17-May-2010)/dev/mapper/VolGroup-lv_root: 正在修复日志/dev/mapper/VolGroup-lv_root contains a file system with errors, 强制检查.第一步: 检查inode,块,和大小Inodes that were part of a corrupted orphan linked list found. 处理&lt;y&gt;? 是/dev/mapper/VolGroup-lv_root: ***** 文件系统已修改 *****/dev/mapper/VolGroup-lv_root: ***** 重新启动 LINUX *****/dev/mapper/VolGroup-lv_root: 209573/2992416 files (2.9% non-contiguous), 10992251/11962368 blocksy# [root@localhost]/data1# reboot[root@localhost]/data1# touch 1.txt[root@localhost]/data1# ls1.txt]]></content>
