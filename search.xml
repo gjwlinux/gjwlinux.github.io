@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Django-DRF-搜索]]></title>
+    <url>%2F2020%2F07%2F09%2FDjango-DRF-%E6%90%9C%E7%B4%A2%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Django-DRF-分页]]></title>
+    <url>%2F2020%2F07%2F09%2FDjango-DRF-%E5%88%86%E9%A1%B5%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Django-DRF-序列化]]></title>
+    <url>%2F2020%2F07%2F09%2FDjango-DRF-%E5%BA%8F%E5%88%97%E5%8C%96%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Django-DRF-前后端分离]]></title>
+    <url>%2F2020%2F07%2F09%2FDjango-DRF-%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
     <title><![CDATA[ladp自助修改密码填坑]]></title>
     <url>%2F2020%2F07%2F09%2Fladp%E8%87%AA%E5%8A%A9%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81%E5%A1%AB%E5%9D%91%2F</url>
     <content type="text"><![CDATA[问题1，修改密码提示失败通过log得出，错误日志不允许访问，怀疑权限问题，增加acl，允许普通用户操作存储1234567891011121314@node1 ~]# cat updatepass.ldifdn: olcDatabase=&#123;2&#125;hdb,cn=configchangetype: modifyadd: olcAccessolcAccess: to attrs=userPassword by self =xw by anonymous auth by * none olcAccess: to * by self write by users read by * none@node1 ~]# ldapmodify -Y EXTERNAL -H ldapi:/// -f updatepass.ldif 问题2，邮箱验证失败 这个问题是通过邮件发送时验证失败的，需要添加用户的时候指定mail字段。 要注意前后空格问题，第一次添加完用户后，使用ldapsearch 查出来的与，mail字段的不一致，在重新测试添加新用户的时候发现最后多了空格 配置文件需要邮箱开启对应协议，而且是协议后所给的密码，而不是自身邮箱登录密码1234567891011@node1 ~]# cat user.ldif dn: uid=user01,ou=People,dc=admin,dc=comcn: user01sn: user01objectClass: inetOrgPersonobjectClass: topobjectClass: personobjectClass: shadowAccountmail: xxx@xxx.comuserPassword:: e01ENX00UXJjT1VtNldhdStWdUJYOGcrSVBnPT0=uid: user01]]></content>
