@@ -250,6 +250,171 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/04/python-e9-85-8d-e7-bd-ae-e6-96-87-e4-bb-b6-e7-94-9f-e6-88-90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="gjw">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="gjwblog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/04/python-e9-85-8d-e7-bd-ae-e6-96-87-e4-bb-b6-e7-94-9f-e6-88-90/" itemprop="url">python生成配置文件</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-04T17:25:30+08:00">
+                2019-04-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>运维工作中，有很多时候需要改配置文件，或者写配置文件，这篇文章主要记录通过python str模版方法生成配置文件，适用不复杂情况，如果配置文件复杂就需要用jinjia2，小胡子等方法生成 str模版示例: tpl模版</p>
+<mysql>
+
+<pre><code>&lt;host&gt;{host}&lt;/host&gt;
+
+&lt;user&gt;{user}&lt;/user&gt;
+</code></pre><mysql>
+
+<p>python代码</p>
+<p>tpl_file = ‘mysql.tpl’</p>
+<p>conf_file = ‘mysql_conf’</p>
+<p>tpl = open(tpl_file).read()</p>
+<p>open(conf_file,’wt’).write(tpl.format(host=’127.0.0.1’,user=’test’))</p>
+<p>结果</p>
+<p>gjwdeMacBook-Pro:py gjw$ cat mysql_conf</p>
+<mysql>
+
+<host>127.0.0.1</host>
+
+<user>test</user>
+
+<mysql>
+
+<p>如果要生成配置文件带有{} 需要将配置文件中{ {}}取消歧义，注意，不是传递的值{ {mysql}}取消</p>
+</mysql></mysql></mysql></mysql>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/25/e6-99-ae-e7-bd-97-e7-b1-b3-e4-bf-ae-e6-96-af-e7-9b-91-e6-8e-a7-e4-bb-8b-e7-bb-8d/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1636,214 +1801,6 @@ print(tpl.format(ip=nodes\[0\], url=nodes\[1\], status_code=nodes\[2\], count=va
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/17/python-e5-9f-ba-e7-a1-80-e5-9b-9b/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="gjw">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="gjwblog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/17/python-e5-9f-ba-e7-a1-80-e5-9b-9b/" itemprop="url">python基础(四)</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-17T14:47:17+08:00">
-                2018-12-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>在前几篇文章中，我们主要了解了python的一些基础内容，此篇文章，将主要介绍python逻辑判断与循环。</p>
-<h4 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h4><p>首先在这里要提到一个概念变量 ，什么是变量，能变得量，变量其实就是在用户空间内存中临时开创了一个空间。 举几个例子：</p>
-<blockquote>
-<blockquote>
-<p>> a = 10 &gt;&gt;&gt; print(a) 10 &gt;&gt;&gt; print(‘a’) a</p>
-</blockquote>
-</blockquote>
-<p>此时我们发现，把10赋值给了a ，a就是一个变量，打印时<strong>不需要加引号</strong>，否则就是字符串  </p>
-<h4 id="逻辑判断有哪些？"><a href="#逻辑判断有哪些？" class="headerlink" title="逻辑判断有哪些？"></a>逻辑判断有哪些？</h4><p>and，or ，not。 从字面上来看，and就是和，or就是或者，not就是不是，那么在python中，他是如何理解这些逻辑判断的呢？</p>
-<blockquote>
-<blockquote>
-<p>> print(‘True’ and ‘False’) False &gt;&gt;&gt; print(‘True’ or ‘False’) True</p>
-</blockquote>
-</blockquote>
-<p>在以上执行结果中得出结论，and 两个值必须同时为真，结果为真，而or，一个为真，结果则为真。</p>
-<h4 id="逻辑判断–if"><a href="#逻辑判断–if" class="headerlink" title="逻辑判断–if"></a>逻辑判断–if</h4><p>if判断，python中if判断是逻辑判断中最常用的语法，语法为:</p>
-<p>if 条件:</p>
-<pre><code>pass
-</code></pre><p>(条件是真，执行此条)</p>
-<p>else:</p>
-<pre><code>pass
-</code></pre><p>(else，否则执行这条)</p>
-<p>下面，请看一个示例：</p>
-<p>num = int(input(‘请输入你的成绩: ‘))</p>
-<p>if num &gt;= 90:</p>
-<pre><code>print(&apos;优秀&apos;)
-</code></pre><p>elif num &gt;= 70:</p>
-<pre><code>print(&apos;良&apos;)
-</code></pre><p>elif num &gt;= 60:</p>
-<pre><code>print(&apos;及格&apos;)
-</code></pre><p>else:</p>
-<pre><code>print(&apos;不及格&apos;)
-</code></pre><p>此时发现程序会让输入一个数值，input 函数就是让我们交互输入，而elif 就是如果第一条判断为假，那么，就执行下面的，如果输入的都没有符合以上判断，最后都会打印，不及格！</p>
-<p>在上一小节中，介绍了python判断，这一节，将介绍python中循环是如何使用</p>
-<h4 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h4><p>whille循环是可以无限循环的循环，只要不触发条件，此时我想输入一个数字让他不断相加，并求平均值，如果按exit 那么就退出:</p>
-<p>count = 0</p>
-<p>count1 = 0</p>
-<p>while True:</p>
-<pre><code>num = input(&apos;请输入一个数字，exit退出：&apos;)
-
-if num ==&apos;exit&apos;:
-
-    print(&apos;by&apos;)
-
-    exit()
-
-else:
-
-    count += int(num)
-
-    count1 +=1
-
-    print(count)
-
-    print(count /int(count1))
-</code></pre><p>再上面代码中，定义了两个变量，一个用来求和，一个计算输入的次数求平均值，通过第一个判断可以得到，用户是否还想继续输入，如果不想那么就使用exit 退出。</p>
-<h2 id="循环–for"><a href="#循环–for" class="headerlink" title="循环–for"></a>循环–for</h2><p> 在上面我们了解了whlie，while 循环，需要定义一个条件来刹车，否则就会一直执行下去，而for循环则是进行一个迭代的过程，比如，我想打印1-10 如何打印？</p>
-<p>for i in range(1,11):</p>
-<pre><code>print(i)
-</code></pre><p>range，在这里这个函数是生成数字1-10，for，in 迭代一个对象，对象值赋值给i 最后我们依次打印了这个i得出结果</p>
-<p>那么while 循环如何打印呢？</p>
-<p>i = 0</p>
-<p>while i &lt;= 9:</p>
-<pre><code>i += 1
-
-print(i)
-</code></pre><p>首先定义了一个变量i ，while 条件中 i 是小于等于9 也就是定义了一个刹车，每次循环让，i + 1 自增，最后循环一次打印一次。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1894,7 +1851,7 @@ print(i)
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">76</span>
+                  <span class="site-state-item-count">77</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
